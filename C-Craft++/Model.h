@@ -8,11 +8,11 @@ public:
 	Model(const std::vector<GLfloat>& vertexPositions);
 	~Model();
 
-	void bind();
-	void unbind();
+	void Bind();
+	void Unbind();
 
 private :
-	void addVbo(int dim, const std::vector<GLfloat>& data);
+	void AddVbo(int dim, const std::vector<GLfloat>& data);
 
 	std::vector<GLuint> m_buffers;
 	GLuint m_vao = 0;

@@ -13,22 +13,22 @@ namespace State {
 	{
 	}
 
-	void Playing::input()
+	void Playing::Input()
 	{
 
 	}
 
-	void Playing::update()
+	void Playing::Update()
 	{
 
 	}
 
-	void Playing::draw()
+	void Playing::Draw()
 	{
-		m_model.bind();
+		m_model.Bind();
 
 		glDrawArrays(GL_TRIANGLES, 0, 6);
 
-		m_model.unbind();
+		m_model.Unbind();
 	}
 }

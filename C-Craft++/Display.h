@@ -3,15 +3,15 @@
 namespace Display
 {
 
-	void init();
-	void close();
+	void Init();
+	void Close();
 
-	void clear();
-	void update();
+	void Clear();
+	void Update();
 
-	void checkForClose();
+	void CheckForClose();
 
-	bool isOpen();
+	bool IsOpen();
 }
 
 

@@ -11,7 +11,7 @@ namespace Display
 
 	std::unique_ptr<sf::RenderWindow> window;
 
-	void init()
+	void Init()
 	{
 		sf::ContextSettings settings;
 		settings.depthBits = 24;
@@ -25,36 +25,36 @@ namespace Display
 
 	}
 
-	void close()
+	void Close()
 	{
 		window->close();
 
 	}
 
-	void clear()
+	void Clear()
 	{
 		glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 		glClear(GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT);
 
 	}
 
-	void update()
+	void Update()
 	{
 		window->display();
 	}
 
-	void checkForClose()
+	void CheckForClose()
 	{
 		sf::Event e;
 		while (window->pollEvent(e))
 		{
 			if (e.type == sf::Event::Closed)
-				close();
+				Close();
 
 		}
 	}
 
-	bool isOpen()
+	bool IsOpen()
 	{
 		return window->isOpen();
 	}

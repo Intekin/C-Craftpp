@@ -7,7 +7,7 @@ Model::Model(const std::vector<GLfloat>& vertexPositions)
 	glGenVertexArrays(1, &m_vao);
 	glBindVertexArray(m_vao);
 
-	addVbo(2, vertexPositions);
+	AddVbo(2, vertexPositions);
 
 	glBindVertexArray(0);
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
@@ -20,17 +20,17 @@ Model::~Model()
 	glDeleteBuffers(m_buffers.size(), m_buffers.data());
 }
 
-void Model::bind()
+void Model::Bind()
 {
 	glBindVertexArray(m_vao);
 }
 
-void Model::unbind()
+void Model::Unbind()
 {
 	glBindVertexArray(0);
 }
 
-void Model::addVbo(int dim, const std::vector<GLfloat>& data)
+void Model::AddVbo(int dim, const std::vector<GLfloat>& data)
 {
 	GLuint vbo;
 	glGenBuffers(1, &vbo);

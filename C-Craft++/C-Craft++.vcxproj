@@ -138,6 +138,8 @@
     <ClCompile Include="Display.cpp" />
     <ClCompile Include="Model.cpp" />
     <ClCompile Include="Playing.cpp" />
+    <ClCompile Include="ShaderLoader.cpp" />
+    <ClCompile Include="ShaderProgram.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application.h" />
@@ -145,6 +147,8 @@
     <ClInclude Include="GameState.h" />
     <ClInclude Include="Model.h" />
     <ClInclude Include="Playing.h" />
+    <ClInclude Include="ShaderLoader.h" />
+    <ClInclude Include="ShaderProgram.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets" />

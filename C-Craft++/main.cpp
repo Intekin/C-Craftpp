@@ -6,11 +6,11 @@
 
 int main() 
 {
-	Display::init();
+	Display::Init();
 
 	Application app;
 
-	app.runMainGameLoop();
+	app.RunMainGameLoop();
 
 	return 0;
 }

@@ -5,31 +5,31 @@
 
 Application::Application()
 {
-	pushState(std::make_unique<State::Playing>(*this));
+	PushState(std::make_unique<State::Playing>(*this));
 }
 
-void Application::runMainGameLoop()
+void Application::RunMainGameLoop()
 {
-	while (Display::isOpen())
+	while (Display::IsOpen())
 	{
-		Display::clear();
+		Display::Clear();
 
-		m_states.top()->input();
-		m_states.top()->update();
-		m_states.top()->draw();
+		m_states.top()->Input();
+		m_states.top()->Update();
+		m_states.top()->Draw();
 
-		Display::update();
-		Display::checkForClose();
+		Display::Update();
+		Display::CheckForClose();
 
 	}
 }
 
-void Application::pushState(std::unique_ptr<State::GameState> state)
+void Application::PushState(std::unique_ptr<State::GameState> state)
 {
 	m_states.push(std::move(state));
 }
 
-void Application::popState()
+void Application::PopState()
 {
 	m_states.pop();
 }

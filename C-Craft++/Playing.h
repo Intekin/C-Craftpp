@@ -12,9 +12,9 @@ namespace State {
 	public:
 		Playing(Application& application);
 
-		void input() override;
-		void update() override;
-		void draw() override;
+		void Input() override;
+		void Update() override;
+		void Draw() override;
 
 	private:
 		Model m_model;

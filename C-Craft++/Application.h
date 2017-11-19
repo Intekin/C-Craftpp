@@ -13,9 +13,9 @@ class Application
 public:
 	Application();
 
-	void runMainGameLoop();
-	void pushState(std::unique_ptr<State::GameState> state);
-	void popState();
+	void RunMainGameLoop();
+	void PushState(std::unique_ptr<State::GameState> state);
+	void PopState();
 
 private:
 	std::stack<std::unique_ptr<State::GameState>> m_states;
