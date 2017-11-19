@@ -1,17 +1,16 @@
+//Minecraft c++ clone
+//made by Christoffer G following the teachings of Hopson's Minecraft in C++/OpenGL tutorials
 
 #include "Display.h"
-
+#include "Application.h"
 
 int main() 
 {
 	Display::init();
 
-	while (Display::isOpen())
-	{
-		Display::clear();
-		Display::update();
+	Application app;
 
-		Display::checkForClose();
-	}
+	app.runMainGameLoop();
 
+	return 0;
 }
