@@ -24,4 +24,9 @@ namespace Shader
 		glUseProgram(0);
 	}
 
+	void ShaderProgram::BindAttribute(GLuint location, const GLchar* name)
+	{
+		glBindAttribLocation(m_programID, location, name);
+
+	}
 }

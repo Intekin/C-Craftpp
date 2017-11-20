@@ -25,10 +25,12 @@ namespace State {
 
 	void Playing::Draw()
 	{
+		m_shader.Bind();
 		m_model.Bind();
 
 		glDrawArrays(GL_TRIANGLES, 0, 6);
 
 		m_model.Unbind();
+		m_shader.Unbind();
 	}
 }

@@ -13,13 +13,13 @@ namespace Shader
 		glCompileShader(id);
 
 		GLint isSuccess;
-		GLchar infoLog[512];
+		GLchar infoLog[1024];
 
 		glGetShaderiv(id, GL_COMPILE_STATUS, &isSuccess);
 
 		if (!isSuccess)
 		{
-			glGetShaderInfoLog(id, 512, nullptr, infoLog);
+			glGetShaderInfoLog(id, 1024, nullptr, infoLog);
 			throw std::runtime_error("Error comiling shaders: " + std::string(infoLog));
 		}
 
@@ -29,13 +29,13 @@ namespace Shader
 
 	std::string GetSource(const std::string& sourceFile)
 	{
-		std::ifstream inFile("" + sourceFile + ".glsl");
+		std::ifstream inFile("Data/Shaders/" + sourceFile + ".glsl");
 		std::string source;
 		std::stringstream stringStream;
 
 		if (!inFile.is_open())
 		{
-			throw std::runtime_error("could not open file: " + sourceFile);
+			throw std::runtime_error("Could not open file: " + sourceFile);
 		}
 
 		stringStream << inFile.rdbuf();

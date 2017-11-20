@@ -1,6 +1,7 @@
 #pragma once
 #include "GameState.h"
 #include "Model.h"
+#include "SimpleShader.h"
 
 class Application;
 
@@ -18,6 +19,8 @@ namespace State {
 
 	private:
 		Model m_model;
+
+		Shader::SimpleShader m_shader;
 	};
 
 }
