@@ -2,12 +2,13 @@
 
 
 
-Model::Model(const std::vector<GLfloat>& vertexPositions)
+Model::Model(const std::vector<GLfloat>& vertexPositions, const std::vector<GLfloat>& textureCoord)
 {
 	glGenVertexArrays(1, &m_vao);
 	glBindVertexArray(m_vao);
 
 	AddVbo(2, vertexPositions);
+	AddVbo(2, textureCoord);
 
 	glBindVertexArray(0);
 	glBindBuffer(GL_ARRAY_BUFFER, 0);

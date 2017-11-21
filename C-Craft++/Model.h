@@ -5,7 +5,7 @@
 class Model
 {
 public:
-	Model(const std::vector<GLfloat>& vertexPositions);
+	Model(const std::vector<GLfloat>& vertexPositions, const std::vector<GLfloat>& textureCoord);
 	~Model();
 
 	void Bind();

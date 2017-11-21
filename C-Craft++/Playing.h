@@ -1,7 +1,11 @@
 #pragma once
+
+
 #include "GameState.h"
+
 #include "Model.h"
 #include "SimpleShader.h"
+#include "BasicTexture.h"
 
 class Application;
 
@@ -21,6 +25,7 @@ namespace State {
 		Model m_model;
 
 		Shader::SimpleShader m_shader;
+		BasicTexture m_texture;
 	};
 
 }
