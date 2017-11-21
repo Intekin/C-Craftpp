@@ -1,44 +1,97 @@
 #include "Model.h"
 
-
-
-Model::Model(const std::vector<GLfloat>& vertexPositions, const std::vector<GLfloat>& textureCoord)
+Model::Model(const Mesh& mesh)
 {
-	glGenVertexArrays(1, &m_vao);
-	glBindVertexArray(m_vao);
-
-	AddVbo(2, vertexPositions);
-	AddVbo(2, textureCoord);
-
-	glBindVertexArray(0);
-	glBindBuffer(GL_ARRAY_BUFFER, 0);
-
+	addData(mesh);
 }
 
 Model::~Model()
 {
-	glDeleteVertexArrays(1, &m_vao);
-	glDeleteBuffers(m_buffers.size(), m_buffers.data());
+	deleteData();
 }
 
-void Model::Bind()
+Model::Model(Model&& other)
+	: m_renderInfo(other.m_renderInfo)
+	, m_vboCount(other.m_vboCount)
+	, m_buffers(std::move(other.m_buffers))
 {
-	glBindVertexArray(m_vao);
+	other.m_renderInfo.reset();
+	other.m_vboCount = 0;
 }
 
-void Model::Unbind()
+Model& Model::operator=(Model&& other)
 {
-	glBindVertexArray(0);
+	m_renderInfo = other.m_renderInfo;
+	m_vboCount = other.m_vboCount;
+	m_buffers = std::move(other.m_buffers);
+
+	other.m_renderInfo.reset();
+	other.m_vboCount = 0;
+
+	return *this;
 }
 
-void Model::AddVbo(int dim, const std::vector<GLfloat>& data)
+void Model::genVAO()
+{
+	if (m_renderInfo.vao != 0)
+		deleteData();
+	glGenVertexArrays(1, &m_renderInfo.vao);
+	glBindVertexArray(m_renderInfo.vao);
+}
+
+void Model::bindVAO() const
+{
+	glBindVertexArray(m_renderInfo.vao);
+}
+
+void Model::addData(const Mesh& mesh)
+{
+	genVAO();
+
+	addVBO(3, mesh.vertexPositions);
+	addVBO(2, mesh.textureCoords);
+	addEBO(mesh.indices);
+}
+
+
+void Model::addVBO(int dimensions, const std::vector<GLfloat>& data)
 {
 	GLuint vbo;
 	glGenBuffers(1, &vbo);
 	glBindBuffer(GL_ARRAY_BUFFER, vbo);
 	glBufferData(GL_ARRAY_BUFFER, data.size() * sizeof(data[0]), data.data(), GL_STATIC_DRAW);
-	glVertexAttribPointer(m_vboCount, dim, GL_FLOAT, GL_FALSE, 0, (GLvoid*)0);
+	glVertexAttribPointer(m_vboCount, dimensions, GL_FLOAT, GL_FALSE, 0, (GLvoid*)0);
 	glEnableVertexAttribArray(m_vboCount++);
 
 	m_buffers.push_back(vbo);
 }
+
+void Model::addEBO(const std::vector<GLuint>& indices)
+{
+	m_renderInfo.indicesCount = indices.size();
+
+	GLuint ebo;
+	glGenBuffers(1, &ebo);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ebo);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, indices.size() * sizeof(GLuint), indices.data(), GL_STATIC_DRAW);
+
+}
+
+void Model::deleteData()
+{
+	if (m_renderInfo.vao)
+		glDeleteVertexArrays(1, &m_renderInfo.vao);
+	if (m_buffers.size() > 0)
+		glDeleteBuffers(m_buffers.size(), m_buffers.data());
+}
+
+int Model::getIndicesCount() const
+{
+	return m_renderInfo.indicesCount;
+}
+
+const RenderInfo& Model::getRenderInfo() const
+{
+	return m_renderInfo;
+}
+

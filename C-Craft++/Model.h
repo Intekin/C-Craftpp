@@ -1,22 +1,36 @@
 #pragma once
-#include <GL\glew.h>
-#include <vector>
+
+#include "Mesh.h"
+#include "NonCopyable.h"
+#include "RenderInfo.h"
 
 class Model
 {
 public:
-	Model(const std::vector<GLfloat>& vertexPositions, const std::vector<GLfloat>& textureCoord);
+	Model() = default;
+	Model(const Mesh& mesh);
 	~Model();
 
-	void Bind();
-	void Unbind();
+	Model(Model&& other);
+	Model& operator= (Model&& other);
+
+	void addData(const Mesh& mesh);
+
+	void deleteData();
+
+	void genVAO();
+	void addEBO(const std::vector<GLuint>& indices);
+	void addVBO(int dimensions, const std::vector<GLfloat>& data);
+	void bindVAO() const;
+
+	int getIndicesCount() const;
+
+	const RenderInfo& getRenderInfo() const;
 
 private :
-	void AddVbo(int dim, const std::vector<GLfloat>& data);
-
+	
+	RenderInfo m_renderInfo;
 	std::vector<GLuint> m_buffers;
-	GLuint m_vao = 0;
-
 	GLuint m_vboCount = 0;
 
 };
