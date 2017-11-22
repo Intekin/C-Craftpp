@@ -1,8 +1,8 @@
 #pragma once
 
 #include <string>
-#include "BlockID.h"
-#include "NonCopyable.h"
+#include "../World/Block/BlockID.h"
+#include "../Util/NonCopyable.h"
 
 struct Material : public NonCopyable
 {

@@ -1,11 +1,11 @@
 #pragma once
 
 #include "GameState.h"
-#include "Player.h"
+#include "../Player/Player.h"
 
 #include "Chunk.h"
 #include "World.h"
-#include "FPSCounter.h"
+//#include "FPSCounter.h"
 
 #include "TickManager.h"
 #include <thread>
@@ -38,7 +38,7 @@ namespace State {
 		sf::RectangleShape m_crosshair;
 		sf::Texture m_chTexture;
 
-		FPSCounter m_fpsCounter;
+		//FPSCounter m_fpsCounter;
 
 		std::unique_ptr<TickManager> m_tickManager;
 		std::unique_ptr<std::thread> m_tickThread;

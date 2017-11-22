@@ -1,9 +1,9 @@
 #pragma once
 #include "Matrix.h"
 
-#include "Camera.h"
-#include "Entity.h"
-#include "Config.h"
+#include "../Camera.h"
+#include "../Entity.h"
+#include "../Config.h"
 
 glm::mat4 makeModelMatrix(const Entity& entity)
 {

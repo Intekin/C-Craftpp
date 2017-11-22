@@ -1,8 +1,9 @@
 #pragma once
 
 #include "Mesh.h"
-#include "NonCopyable.h"
-#include "RenderInfo.h"
+#include "Util/NonCopyable.h"
+#include "Render/RenderInfo.h"
+
 
 class Model
 {

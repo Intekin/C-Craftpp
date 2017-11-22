@@ -34,6 +34,54 @@
     <Filter Include="Header Files\Util">
       <UniqueIdentifier>{02fb4a57-7d3a-40c2-b354-6d1fea8b12f1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Renderer">
+      <UniqueIdentifier>{d7fa315c-cdc2-48f9-8c21-9d201ebc8dfe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Renderer">
+      <UniqueIdentifier>{fb9a3c5f-03aa-496e-abdc-0a2eb3b3d048}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Player">
+      <UniqueIdentifier>{5e179779-3d06-4ef9-a70d-e60acd354c83}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Player">
+      <UniqueIdentifier>{6dc38ed7-cb43-45dc-a111-dc77b9b44cbb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Maths">
+      <UniqueIdentifier>{5e2df58c-35cb-46e1-9438-049fffd16c97}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Maths">
+      <UniqueIdentifier>{b3466c64-ede9-4af6-95a3-8e0f2ce2bdf6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Item">
+      <UniqueIdentifier>{a6bf5581-d72d-423e-b23c-a7621f7ed930}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Item">
+      <UniqueIdentifier>{d48e0026-d0ed-4547-a034-56b34b5a7e3b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\World">
+      <UniqueIdentifier>{4c765a43-3943-4997-ad07-1383329ca248}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\World\Block">
+      <UniqueIdentifier>{3747989c-f4fb-4c23-a750-4e5656fb7e8b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\World\Chunk">
+      <UniqueIdentifier>{b667e765-22eb-41dc-902d-5862b96cf5bc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\World\Event">
+      <UniqueIdentifier>{f5236060-c33d-423b-a548-671a60a1a47f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\World\Generation">
+      <UniqueIdentifier>{a8194f99-22a8-4c72-9154-c019eaabd221}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\World">
+      <UniqueIdentifier>{fd4ea320-ebdb-40a7-a37e-455ada025f95}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\World\Blocks">
+      <UniqueIdentifier>{056419a8-e669-40fc-9633-3a7c5effed48}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\GL">
+      <UniqueIdentifier>{324f8596-c3f4-4455-af9d-5db8a19964ec}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -45,32 +93,77 @@
     <ClCompile Include="Application.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GameState.cpp">
-      <Filter>Source Files\States</Filter>
-    </ClCompile>
-    <ClCompile Include="Playing.cpp">
-      <Filter>Source Files\States</Filter>
-    </ClCompile>
     <ClCompile Include="Model.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ShaderProgram.cpp">
-      <Filter>Source Files\Shader</Filter>
+    <ClCompile Include="Camera.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ShaderLoader.cpp">
-      <Filter>Source Files\Shader</Filter>
+    <ClCompile Include="Maths\AABB.cpp">
+      <Filter>Source Files\Maths</Filter>
     </ClCompile>
-    <ClCompile Include="SimpleShader.cpp">
-      <Filter>Source Files\Shader</Filter>
-    </ClCompile>
-    <ClCompile Include="BasicTexture.cpp">
+    <ClCompile Include="Texture\BasicTexture.cpp">
       <Filter>Source Files\Texture</Filter>
     </ClCompile>
-    <ClCompile Include="TextureAtlas.cpp">
+    <ClCompile Include="Texture\CubeTexture.cpp">
       <Filter>Source Files\Texture</Filter>
     </ClCompile>
-    <ClCompile Include="CubeTexture.cpp">
+    <ClCompile Include="Maths\Frustum.cpp">
+      <Filter>Source Files\Maths</Filter>
+    </ClCompile>
+    <ClCompile Include="Item\Material.cpp">
+      <Filter>Source Files\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="Texture\TextureAtlas.cpp">
       <Filter>Source Files\Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="Shader\SimpleShader.cpp">
+      <Filter>Source Files\Shader</Filter>
+    </ClCompile>
+    <ClCompile Include="Shader\ShaderProgram.cpp">
+      <Filter>Source Files\Shader</Filter>
+    </ClCompile>
+    <ClCompile Include="Shader\ShaderLoader.cpp">
+      <Filter>Source Files\Shader</Filter>
+    </ClCompile>
+    <ClCompile Include="States\PlayingState.cpp">
+      <Filter>Source Files\States</Filter>
+    </ClCompile>
+    <ClCompile Include="Maths\Matrix.cpp">
+      <Filter>Source Files\Maths</Filter>
+    </ClCompile>
+    <ClCompile Include="Item\ItemStack.cpp">
+      <Filter>Source Files\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="Player\Player.cpp">
+      <Filter>Source Files\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="World\Block\BlockData.cpp">
+      <Filter>Source Files\World\Blocks</Filter>
+    </ClCompile>
+    <ClCompile Include="World\Block\BlockDatabase.cpp">
+      <Filter>Source Files\World\Blocks</Filter>
+    </ClCompile>
+    <ClCompile Include="World\Block\BlockType.cpp">
+      <Filter>Source Files\World\Blocks</Filter>
+    </ClCompile>
+    <ClCompile Include="World\Block\ChunkBlock.cpp">
+      <Filter>Source Files\World\Blocks</Filter>
+    </ClCompile>
+    <ClCompile Include="ToggleKey.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GlobalInfo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Controller.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GL\GLFunctions.cpp">
+      <Filter>Header Files\GL</Filter>
+    </ClCompile>
+    <ClCompile Include="World\World.cpp">
+      <Filter>Header Files\World</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -80,38 +173,113 @@
     <ClInclude Include="Application.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="GameState.h">
-      <Filter>Header Files\States</Filter>
-    </ClInclude>
-    <ClInclude Include="Playing.h">
-      <Filter>Header Files\States</Filter>
-    </ClInclude>
     <ClInclude Include="Model.h">
       <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ShaderProgram.h">
-      <Filter>Header Files\Shader</Filter>
-    </ClInclude>
-    <ClInclude Include="ShaderLoader.h">
-      <Filter>Header Files\Shader</Filter>
-    </ClInclude>
-    <ClInclude Include="SimpleShader.h">
-      <Filter>Header Files\Shader</Filter>
     </ClInclude>
     <ClInclude Include="resource.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="BasicTexture.h">
+    <ClInclude Include="Mesh.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Config.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Maths\AABB.h">
+      <Filter>Header Files\Maths</Filter>
+    </ClInclude>
+    <ClInclude Include="Texture\BasicTexture.h">
       <Filter>Header Files\Texture</Filter>
     </ClInclude>
-    <ClInclude Include="NonCopyable.h">
+    <ClInclude Include="Texture\CubeTexture.h">
+      <Filter>Header Files\Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="States\GameState.h">
+      <Filter>Header Files\States</Filter>
+    </ClInclude>
+    <ClInclude Include="States\PlayingState.h">
+      <Filter>Header Files\States</Filter>
+    </ClInclude>
+    <ClInclude Include="Texture\TextureAtlas.h">
+      <Filter>Header Files\Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="Shader\SimpleShader.h">
+      <Filter>Header Files\Shader</Filter>
+    </ClInclude>
+    <ClInclude Include="Shader\ShaderProgram.h">
+      <Filter>Header Files\Shader</Filter>
+    </ClInclude>
+    <ClInclude Include="Shader\ShaderLoader.h">
+      <Filter>Header Files\Shader</Filter>
+    </ClInclude>
+    <ClInclude Include="Render\RenderInfo.h">
+      <Filter>Header Files\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="Util\NonCopyable.h">
       <Filter>Header Files\Util</Filter>
     </ClInclude>
-    <ClInclude Include="TextureAtlas.h">
-      <Filter>Header Files\Texture</Filter>
+    <ClInclude Include="Item\Material.h">
+      <Filter>Header Files\Item</Filter>
     </ClInclude>
-    <ClInclude Include="CubeTexture.h">
-      <Filter>Header Files\Texture</Filter>
+    <ClInclude Include="Item\ItemStack.h">
+      <Filter>Header Files\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="Maths\glm.h">
+      <Filter>Header Files\Maths</Filter>
+    </ClInclude>
+    <ClInclude Include="Maths\Frustum.h">
+      <Filter>Header Files\Maths</Filter>
+    </ClInclude>
+    <ClInclude Include="Maths\Matrix.h">
+      <Filter>Header Files\Maths</Filter>
+    </ClInclude>
+    <ClInclude Include="Player\Player.h">
+      <Filter>Header Files\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="World\Block\BlockType.h">
+      <Filter>Header Files\World\Block</Filter>
+    </ClInclude>
+    <ClInclude Include="World\Block\BlockData.h">
+      <Filter>Header Files\World\Block</Filter>
+    </ClInclude>
+    <ClInclude Include="World\Block\BlockDatabase.h">
+      <Filter>Header Files\World\Block</Filter>
+    </ClInclude>
+    <ClInclude Include="World\Block\BlockID.h">
+      <Filter>Header Files\World\Block</Filter>
+    </ClInclude>
+    <ClInclude Include="World\Block\ChunkBlock.h">
+      <Filter>Header Files\World\Block</Filter>
+    </ClInclude>
+    <ClInclude Include="Util\NonMovable.h">
+      <Filter>Header Files\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="Util\Singleton.h">
+      <Filter>Header Files\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="ToggleKey.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GlobalInfo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Controller.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GL\GLFunctions.h">
+      <Filter>Header Files\GL</Filter>
+    </ClInclude>
+    <ClInclude Include="World\World.h">
+      <Filter>Header Files\World</Filter>
+    </ClInclude>
+    <ClInclude Include="World\WorldConstants.h">
+      <Filter>Header Files\World</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

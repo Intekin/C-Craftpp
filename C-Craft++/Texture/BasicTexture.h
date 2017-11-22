@@ -1,10 +1,10 @@
 #pragma once
 
-#include "GL\glew.h"
+#include "GL/glew.h"
 #include <string>
-#include <SFML\Graphics.hpp>
+#include <SFML/Graphics.hpp>
 
-#include "NonCopyable.h"
+#include "../Util/NonCopyable.h"
 
 class BasicTexture : public NonCopyable
 {

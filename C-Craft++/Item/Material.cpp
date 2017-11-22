@@ -26,40 +26,40 @@ BlockID Material::toBlockID() const
 	switch (id)
 	{
 	case Nothing:
-		return BlockId::Air;
+		return BlockID::Air;
 
 	case Grass:
-		return BlockId::Grass;
+		return BlockID::Grass;
 
 	case Dirt:
-		return BlockId::Dirt;
+		return BlockID::Dirt;
 
 	case Stone:
-		return BlockId::Stone;
+		return BlockID::Stone;
 
 	case OakLog:
-		return BlockId::OakBark;
+		return BlockID::OakLog;
 
 	case OakLeaf:
-		return BlockId::OakLeaf;
+		return BlockID::OakLeaf;
 
 	case Sand:
-		return BlockId::Sand;
+		return BlockID::Sand;
 
 	case Cactus:
-		return BlockId::Cactus;
+		return BlockID::Cactus;
 
 	case TallGrass:
-		return BlockId::TallGrass;
+		return BlockID::TallGrass;
 
 	case RedFlower:
-		return BlockId::Rose;
+		return BlockID::RedFlower;
 
 	case DeadShrub:
-		return BlockId::DeadShrub;
+		return BlockID::DeadShrub;
 
 	default:
-		return BlockId::NUM_TYPES;
+		return BlockID::NUM_TYPES;
 	}
 }
 
@@ -67,34 +67,34 @@ const Material& Material::toMaterial(BlockID id)
 {
 	switch (id)
 	{
-	case BlockId::Grass:
+	case BlockID::Grass:
 		return GRASS_BLOCK;
 
-	case BlockId::Dirt:
+	case BlockID::Dirt:
 		return DIRT_BLOCK;
 
-	case BlockId::Stone:
+	case BlockID::Stone:
 		return STONE_BLOCK;
 
-	case BlockId::OakLog:
+	case BlockID::OakLog:
 		return OAK_BLOCK;
 
-	case BlockId::OakLeaf:
+	case BlockID::OakLeaf:
 		return OAK_LEAF_BLOCK;
 
-	case BlockId::Sand:
+	case BlockID::Sand:
 		return SAND_BLOCK;
 
-	case BlockId::Cactus:
+	case BlockID::Cactus:
 		return CACTUS_BLOCK;
 
-	case BlockId::Rose:
+	case BlockID::RedFlower:
 		return RED_FLOWER;
 
-	case BlockId::TallGrass:
+	case BlockID::TallGrass:
 		return TALL_GRASS;
 
-	case BlockId::DeadShrub:
+	case BlockID::DeadShrub:
 		return DEAD_SHRUB;
 
 

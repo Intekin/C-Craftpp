@@ -1,11 +1,11 @@
 #include "Application.h"
 #include "Display.h"
-#include "Playing.h"
+#include "States\PlayingState.h"
 
 
 Application::Application()
 {
-	PushState(std::make_unique<State::Playing>(*this));
+	PushState(std::make_unique<StatePlaying>(*this));
 }
 
 void Application::RunMainGameLoop()
@@ -24,7 +24,7 @@ void Application::RunMainGameLoop()
 	}
 }
 
-void Application::PushState(std::unique_ptr<State::GameState> state)
+void Application::PushState(std::unique_ptr<GameState> state)
 {
 	m_states.push(std::move(state));
 }

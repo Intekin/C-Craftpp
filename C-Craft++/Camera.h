@@ -1,7 +1,7 @@
 #pragma once
 
-#include "glm.h"
-#include "Frustum.h"
+#include "Maths/glm.h"
+#include "Maths/Frustum.h"
 #include "Entity.h"
 #include "Config.h"
 

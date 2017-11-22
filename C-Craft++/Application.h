@@ -1,24 +1,25 @@
 #pragma once
 
-#include <stack>
+#include <vector>
 #include <memory>
 
-#include "GameState.h"
+#include "States/GameState.h"
+#include "Render/RenderMaster.h"
 
-
+#include "Context.h"
+#include "Camera.h"
+#include "GlobalInfo.h"
 
 class Application
 {
 
 public:
-	Application();
+	Application(const Config& config);
 
-	void RunMainGameLoop();
-	void PushState(std::unique_ptr<State::GameState> state);
-	void PopState();
+	void runLoop();
 
 private:
-	std::stack<std::unique_ptr<State::GameState>> m_states;
+	std::vector<std::unique_ptr<GameState>> m_states;
 
 };
 

@@ -1,5 +1,5 @@
 #include "Camera.h"
-#include "Matrix.h"
+#include "Maths/Matrix.h"
 
 Camera::Camera(const Config& config) noexcept
 	: m_config (config)

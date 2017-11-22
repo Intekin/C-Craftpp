@@ -5,7 +5,7 @@
 #include <string>
 #include <SFML\Graphics.hpp>
 
-#include "NonCopyable.h"
+#include "../Util/NonCopyable.h"
 
 class CubeTexture : public NonCopyable
 {

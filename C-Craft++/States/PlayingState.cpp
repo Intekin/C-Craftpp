@@ -1,26 +1,6 @@
-#include "Playing.h"
+#include "PlayingState.h"
 
 #include <iostream>
-
-std::vector<GLfloat> vertexPositions =
-{
-	0.5f, 0.5f,
-	-0.5f, 0.5f,
-	-0.5f, -0.5f,
-	-0.5f, -0.5f,
-	0.5f, -0.5f,
-	0.5f, 0.5f
-};
-
-std::vector<GLfloat> textureCoords =
-{
-	1.0, 1.0,
-	0.0, 1.0,
-	0.0, 0.0,
-	0.0, 0.0,
-	1.0, 0.0,
-	1.0, 1.0
-};
 
 namespace State {
 

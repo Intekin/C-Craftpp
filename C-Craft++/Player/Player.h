@@ -2,8 +2,8 @@
 #include <SFML\Graphics.hpp>
 #include <vector>
 
-#include "Entity.h"
-#include "ItemStack.h"
+#include "../Entity.h"
+#include "../Item/ItemStack.h"
 #include "ToggleKey.h"
 
 class World;
