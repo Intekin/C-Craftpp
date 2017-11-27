@@ -4,7 +4,7 @@
 #include <memory>
 
 #include "States/GameState.h"
-#include "Render/RenderMaster.h"
+#include "Render/MasterRenderer.h"
 
 #include "Context.h"
 #include "Camera.h"

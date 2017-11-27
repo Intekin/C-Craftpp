@@ -3,7 +3,7 @@
 #include "States\PlayingState.h"
 
 
-Application::Application()
+Application::Application(const Config& config)
 {
 	PushState(std::make_unique<StatePlaying>(*this));
 }

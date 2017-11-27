@@ -138,6 +138,17 @@
     <ClCompile Include="Maths\AABB.cpp" />
     <ClCompile Include="Application.cpp" />
     <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="Maths\GeneralMaths.cpp" />
+    <ClCompile Include="Maths\NoiseGenerator.cpp" />
+    <ClCompile Include="Maths\Ray.cpp" />
+    <ClCompile Include="Maths\Vector2XZ.cpp" />
+    <ClCompile Include="Render\ChunkRenderer.cpp" />
+    <ClCompile Include="Render\CubeRenderer.cpp" />
+    <ClCompile Include="Render\FloraRenderer.cpp" />
+    <ClCompile Include="Render\MasterRenderer.cpp" />
+    <ClCompile Include="Render\QuadRenderer.cpp" />
+    <ClCompile Include="Render\SFMLRenderer.cpp" />
+    <ClCompile Include="Render\WaterRenderer.cpp" />
     <ClCompile Include="Texture\CubeTexture.cpp" />
     <ClCompile Include="Maths\Frustum.cpp" />
     <ClCompile Include="Item\ItemStack.cpp" />
@@ -154,10 +165,16 @@
     <ClCompile Include="Texture\BasicTexture.cpp" />
     <ClCompile Include="Texture\TextureAtlas.cpp" />
     <ClCompile Include="ToggleKey.cpp" />
+    <ClCompile Include="Util\Random.cpp" />
     <ClCompile Include="World\Block\BlockData.cpp" />
     <ClCompile Include="World\Block\BlockDatabase.cpp" />
     <ClCompile Include="World\Block\BlockType.cpp" />
     <ClCompile Include="World\Block\ChunkBlock.cpp" />
+    <ClCompile Include="World\Chunk\Chunk.cpp" />
+    <ClCompile Include="World\Chunk\ChunkManager.cpp" />
+    <ClCompile Include="World\Chunk\ChunkMesh.cpp" />
+    <ClCompile Include="World\Chunk\ChunkMeshBuilder.cpp" />
+    <ClCompile Include="World\Chunk\ChunkSection.cpp" />
     <ClCompile Include="World\World.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -168,6 +185,17 @@
     <ClInclude Include="Application.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Config.h" />
+    <ClInclude Include="Maths\GeneralMaths.h" />
+    <ClInclude Include="Maths\NoiseGenerator.h" />
+    <ClInclude Include="Maths\Ray.h" />
+    <ClInclude Include="Maths\Vector2XZ.h" />
+    <ClInclude Include="Render\ChunkRenderer.h" />
+    <ClInclude Include="Render\CubeRenderer.h" />
+    <ClInclude Include="Render\FloraRenderer.h" />
+    <ClInclude Include="Render\MasterRenderer.h" />
+    <ClInclude Include="Render\QuadRenderer.h" />
+    <ClInclude Include="Render\SFMLRenderer.h" />
+    <ClInclude Include="Render\WaterRenderer.h" />
     <ClInclude Include="Texture\CubeTexture.h" />
     <ClInclude Include="Display.h" />
     <ClInclude Include="Entity.h" />
@@ -180,6 +208,7 @@
     <ClInclude Include="Mesh.h" />
     <ClInclude Include="Model.h" />
     <ClInclude Include="ToggleKey.h" />
+    <ClInclude Include="Util\Array2D.h" />
     <ClInclude Include="Util\NonCopyable.h" />
     <ClInclude Include="Player\Player.h" />
     <ClInclude Include="States\PlayingState.h" />
@@ -191,12 +220,19 @@
     <ClInclude Include="Texture\BasicTexture.h" />
     <ClInclude Include="Texture\TextureAtlas.h" />
     <ClInclude Include="Util\NonMovable.h" />
+    <ClInclude Include="Util\Random.h" />
     <ClInclude Include="Util\Singleton.h" />
     <ClInclude Include="World\Block\BlockData.h" />
     <ClInclude Include="World\Block\BlockDatabase.h" />
     <ClInclude Include="World\Block\BlockID.h" />
     <ClInclude Include="World\Block\BlockType.h" />
     <ClInclude Include="World\Block\ChunkBlock.h" />
+    <ClInclude Include="World\Chunk\Chunk.h" />
+    <ClInclude Include="World\Chunk\ChunkManager.h" />
+    <ClInclude Include="World\Chunk\ChunkMesh.h" />
+    <ClInclude Include="World\Chunk\ChunkMeshBuilder.h" />
+    <ClInclude Include="World\Chunk\ChunkSection.h" />
+    <ClInclude Include="World\Chunk\IChunk.h" />
     <ClInclude Include="World\World.h" />
     <ClInclude Include="World\WorldConstants.h" />
   </ItemGroup>

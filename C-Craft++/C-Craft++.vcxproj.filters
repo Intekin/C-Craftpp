@@ -82,6 +82,9 @@
     <Filter Include="Header Files\GL">
       <UniqueIdentifier>{324f8596-c3f4-4455-af9d-5db8a19964ec}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\World\Chunks">
+      <UniqueIdentifier>{d699f5ba-6fdd-4f78-957b-ddc875fd8e71}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -163,7 +166,58 @@
       <Filter>Header Files\GL</Filter>
     </ClCompile>
     <ClCompile Include="World\World.cpp">
-      <Filter>Header Files\World</Filter>
+      <Filter>Source Files\World</Filter>
+    </ClCompile>
+    <ClCompile Include="World\Chunk\Chunk.cpp">
+      <Filter>Source Files\World\Chunks</Filter>
+    </ClCompile>
+    <ClCompile Include="World\Chunk\ChunkManager.cpp">
+      <Filter>Source Files\World\Chunks</Filter>
+    </ClCompile>
+    <ClCompile Include="World\Chunk\ChunkMesh.cpp">
+      <Filter>Source Files\World\Chunks</Filter>
+    </ClCompile>
+    <ClCompile Include="World\Chunk\ChunkMeshBuilder.cpp">
+      <Filter>Source Files\World\Chunks</Filter>
+    </ClCompile>
+    <ClCompile Include="World\Chunk\ChunkSection.cpp">
+      <Filter>Source Files\World\Chunks</Filter>
+    </ClCompile>
+    <ClCompile Include="Util\Random.cpp">
+      <Filter>Header Files\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="Maths\GeneralMaths.cpp">
+      <Filter>Source Files\Maths</Filter>
+    </ClCompile>
+    <ClCompile Include="Maths\NoiseGenerator.cpp">
+      <Filter>Source Files\Maths</Filter>
+    </ClCompile>
+    <ClCompile Include="Maths\Ray.cpp">
+      <Filter>Source Files\Maths</Filter>
+    </ClCompile>
+    <ClCompile Include="Maths\Vector2XZ.cpp">
+      <Filter>Source Files\Maths</Filter>
+    </ClCompile>
+    <ClCompile Include="Render\ChunkRenderer.cpp">
+      <Filter>Header Files\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="Render\CubeRenderer.cpp">
+      <Filter>Header Files\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="Render\FloraRenderer.cpp">
+      <Filter>Header Files\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="Render\MasterRenderer.cpp">
+      <Filter>Header Files\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="Render\QuadRenderer.cpp">
+      <Filter>Header Files\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="Render\SFMLRenderer.cpp">
+      <Filter>Header Files\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="Render\WaterRenderer.cpp">
+      <Filter>Header Files\Renderer</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -280,6 +334,63 @@
     </ClInclude>
     <ClInclude Include="World\WorldConstants.h">
       <Filter>Header Files\World</Filter>
+    </ClInclude>
+    <ClInclude Include="World\Chunk\Chunk.h">
+      <Filter>Header Files\World\Chunk</Filter>
+    </ClInclude>
+    <ClInclude Include="World\Chunk\ChunkManager.h">
+      <Filter>Header Files\World\Chunk</Filter>
+    </ClInclude>
+    <ClInclude Include="World\Chunk\ChunkMesh.h">
+      <Filter>Header Files\World\Chunk</Filter>
+    </ClInclude>
+    <ClInclude Include="World\Chunk\ChunkMeshBuilder.h">
+      <Filter>Header Files\World\Chunk</Filter>
+    </ClInclude>
+    <ClInclude Include="World\Chunk\ChunkSection.h">
+      <Filter>Header Files\World\Chunk</Filter>
+    </ClInclude>
+    <ClInclude Include="World\Chunk\IChunk.h">
+      <Filter>Header Files\World\Chunk</Filter>
+    </ClInclude>
+    <ClInclude Include="Util\Random.h">
+      <Filter>Header Files\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="Maths\GeneralMaths.h">
+      <Filter>Header Files\Maths</Filter>
+    </ClInclude>
+    <ClInclude Include="Maths\NoiseGenerator.h">
+      <Filter>Header Files\Maths</Filter>
+    </ClInclude>
+    <ClInclude Include="Maths\Ray.h">
+      <Filter>Header Files\Maths</Filter>
+    </ClInclude>
+    <ClInclude Include="Maths\Vector2XZ.h">
+      <Filter>Header Files\Maths</Filter>
+    </ClInclude>
+    <ClInclude Include="Render\ChunkRenderer.h">
+      <Filter>Header Files\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="Render\CubeRenderer.h">
+      <Filter>Header Files\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="Render\FloraRenderer.h">
+      <Filter>Header Files\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="Render\MasterRenderer.h">
+      <Filter>Header Files\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="Render\QuadRenderer.h">
+      <Filter>Header Files\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="Render\SFMLRenderer.h">
+      <Filter>Header Files\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="Render\WaterRenderer.h">
+      <Filter>Header Files\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="Util\Array2D.h">
+      <Filter>Header Files\Util</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -54,7 +54,16 @@ private:
 	ChunkManager m_chunkManager;
 
 	std::vector<std::unique_ptr<IWorldEvent>> m_events;
-	std::unordered<sf::vector3i, ChunkSection*> m_chunkUpdates;
+	std::unordered_map<sf::vector3i, ChunkSection*> m_chunkUpdates;
 
+	std::atomic<bool> m_isBRunning{ true };
+	std::vector<std::thread> m_chunkLoadThreads;
+	std::mutex m_mainMutex;
+	std::mutex m_genMutex;
+
+	int m_loadDistance = 2;
+	const int m_renderDistance;
+	
+	glm::vec3 m_playerSpawnPoint;
 
 };
