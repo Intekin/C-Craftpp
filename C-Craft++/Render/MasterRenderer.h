@@ -9,7 +9,7 @@
 #include "FloraRenderer.h"
 #include "../Config.h"
 
-#include "../Sky/SkyManager.h"
+//#include "../Sky/SkyManager.h"
 
 #include "../States/PlayingState.h"
 
@@ -35,8 +35,8 @@ private:
 	CubeRenderer	m_cubeRenderer;
 
 	ChunkRenderer	m_chunkRenderer;
-	WaterRenderer	m_waterRenderer;
-	FloraRenderer	m_floraRenderer;
+	//WaterRenderer	m_waterRenderer;
+	//FloraRenderer	m_floraRenderer;
 
 	SFMLRenderer	m_sfmlRenderer;
 

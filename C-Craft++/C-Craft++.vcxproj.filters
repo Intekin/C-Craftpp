@@ -198,26 +198,26 @@
     <ClCompile Include="Maths\Vector2XZ.cpp">
       <Filter>Source Files\Maths</Filter>
     </ClCompile>
-    <ClCompile Include="Render\ChunkRenderer.cpp">
-      <Filter>Header Files\Renderer</Filter>
-    </ClCompile>
-    <ClCompile Include="Render\CubeRenderer.cpp">
-      <Filter>Header Files\Renderer</Filter>
-    </ClCompile>
-    <ClCompile Include="Render\FloraRenderer.cpp">
-      <Filter>Header Files\Renderer</Filter>
-    </ClCompile>
-    <ClCompile Include="Render\MasterRenderer.cpp">
-      <Filter>Header Files\Renderer</Filter>
-    </ClCompile>
-    <ClCompile Include="Render\QuadRenderer.cpp">
-      <Filter>Header Files\Renderer</Filter>
+    <ClCompile Include="Render\WaterRenderer.cpp">
+      <Filter>Source Files\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="Render\SFMLRenderer.cpp">
-      <Filter>Header Files\Renderer</Filter>
+      <Filter>Source Files\Renderer</Filter>
     </ClCompile>
-    <ClCompile Include="Render\WaterRenderer.cpp">
-      <Filter>Header Files\Renderer</Filter>
+    <ClCompile Include="Render\QuadRenderer.cpp">
+      <Filter>Source Files\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="Render\MasterRenderer.cpp">
+      <Filter>Source Files\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="Render\FloraRenderer.cpp">
+      <Filter>Source Files\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="Render\CubeRenderer.cpp">
+      <Filter>Source Files\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="Render\ChunkRenderer.cpp">
+      <Filter>Source Files\Renderer</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
