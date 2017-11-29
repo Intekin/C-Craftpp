@@ -5,7 +5,7 @@ namespace Shader
 {
 
 	ShaderProgram::ShaderProgram(const std::string& vertexShaderFile, const std::string& fragmentShaderFile)
-		: m_programID(LoadShader(vertexShaderFile, fragmentShaderFile))
+		: m_programID(loadShader(vertexShaderFile, fragmentShaderFile))
 	{
 	}
 

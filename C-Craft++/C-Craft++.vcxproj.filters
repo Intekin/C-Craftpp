@@ -120,9 +120,6 @@
     <ClCompile Include="Texture\TextureAtlas.cpp">
       <Filter>Source Files\Texture</Filter>
     </ClCompile>
-    <ClCompile Include="Shader\SimpleShader.cpp">
-      <Filter>Source Files\Shader</Filter>
-    </ClCompile>
     <ClCompile Include="Shader\ShaderProgram.cpp">
       <Filter>Source Files\Shader</Filter>
     </ClCompile>
@@ -219,6 +216,21 @@
     <ClCompile Include="Render\ChunkRenderer.cpp">
       <Filter>Source Files\Renderer</Filter>
     </ClCompile>
+    <ClCompile Include="Shader\ChunkShader.cpp">
+      <Filter>Source Files\Shader</Filter>
+    </ClCompile>
+    <ClCompile Include="Shader\PostProcessShader.cpp">
+      <Filter>Source Files\Shader</Filter>
+    </ClCompile>
+    <ClCompile Include="Shader\BasicShader.cpp">
+      <Filter>Source Files\Shader</Filter>
+    </ClCompile>
+    <ClCompile Include="Shader\Shader.cpp">
+      <Filter>Source Files\Shader</Filter>
+    </ClCompile>
+    <ClCompile Include="Context.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Display.h">
@@ -262,9 +274,6 @@
     </ClInclude>
     <ClInclude Include="Texture\TextureAtlas.h">
       <Filter>Header Files\Texture</Filter>
-    </ClInclude>
-    <ClInclude Include="Shader\SimpleShader.h">
-      <Filter>Header Files\Shader</Filter>
     </ClInclude>
     <ClInclude Include="Shader\ShaderProgram.h">
       <Filter>Header Files\Shader</Filter>
@@ -391,6 +400,21 @@
     </ClInclude>
     <ClInclude Include="Util\Array2D.h">
       <Filter>Header Files\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="Shader\ChunkShader.h">
+      <Filter>Header Files\Shader</Filter>
+    </ClInclude>
+    <ClInclude Include="Shader\PostProcessShader.h">
+      <Filter>Header Files\Shader</Filter>
+    </ClInclude>
+    <ClInclude Include="Shader\Shader.h">
+      <Filter>Header Files\Shader</Filter>
+    </ClInclude>
+    <ClInclude Include="Shader\BasicShader.h">
+      <Filter>Header Files\Shader</Filter>
+    </ClInclude>
+    <ClInclude Include="Context.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -23,7 +23,7 @@ public:
 	void drawQuad(const glm::vec3& pos);
 	void drawCube(const Entity& cube);
 	void drawChunk(const ChunkSection& chunk);
-	void drawSky();
+	//void drawSky();
 
 	void setConfig(const Config& con);
 	void finishRender(sf::RenderWindow& window, const Camera& camera);

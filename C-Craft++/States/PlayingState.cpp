@@ -1,36 +1,22 @@
 #include "PlayingState.h"
 
+#include "../Application.h"
+#include "../Maths/Ray.h"
+#include "../Render/MasterRenderer.h"
+#include "../World/Event/PlayerDigEvent.h"
+
 #include <iostream>
 
-namespace State {
+//std::shared_ptr<SkyManager> m_sky;
 
-	Playing::Playing(Application& application)
-		: GameState(application)
-		, m_model(vertexPositions, textureCoords)
-	{
-		m_texture.loadFromFile("Grass");
-	}
-
-	void Playing::Input()
-	{
-
-	}
-
-	void Playing::Update()
-	{
-
-	}
-
-	void Playing::Draw()
-	{
-		m_shader.Bind();
-		m_model.Bind();
-		m_texture.bindTexture();
-
-		glDrawArrays(GL_TRIANGLES, 0, 6);
-
-		//m_texture.Unbind();
-		m_model.Unbind();
-		m_shader.Unbind();
-	}
+StatePlaying::StatePlaying(Application& application, const Config& config)
+	: GameState(application), m_world(application.getCamera(), config, m_player)
+{
+	m_texture.loadFromFile("Grass");
 }
+
+void StatePlaying::update(float deltaTime)
+{
+
+}
+

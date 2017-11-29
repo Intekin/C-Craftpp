@@ -16,9 +16,9 @@ class Chunk : public IChunk
 
 	bool makeMesh(const Camera& camera);
 
-	void setBlock(int x, int, y int z, ChunkBlock block) override;
+	void setBlock(int x, int y, int z, ChunkBlock block) override;
 	ChunkBlock getBlock(int x, int y, int z) const noexcept override;
-	int getHeightAtc(int x, int z);
+	int getHeightAt(int x, int z);
 
 	void drawChunks(RenderMaster& renderer, const Camera& camera);
 
@@ -27,7 +27,7 @@ class Chunk : public IChunk
 
 	ChunkSection& getSection(int index);
 
-	const sf::Vector2i& getLocation() const {return m_location}
+	const sf::Vector2i& getLocation() const { return m_location };
 
 	void deleteMeshes();
 
@@ -39,7 +39,7 @@ private:
 	bool outOfBound(int x, int y, int z) const noexcept;
 
 	std::vector<ChunkSection>	m_chunks;
-	Array2D<int, CHUNK_SIZE		m_highestBlock;
+	Array2D<int, CHUNK_SIZE>	m_highestBlock;
 	sf::Vector2i				m_location;
 
 	World* m_pWorld;

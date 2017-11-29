@@ -83,6 +83,10 @@ void Model::deleteData()
 		glDeleteVertexArrays(1, &m_renderInfo.vao);
 	if (m_buffers.size() > 0)
 		glDeleteBuffers(m_buffers.size(), m_buffers.data());
+
+	m_buffers.clear();
+	m_vboCount = 0;
+	m_renderInfo.reset();
 }
 
 int Model::getIndicesCount() const

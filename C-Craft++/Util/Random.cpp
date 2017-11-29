@@ -1,6 +1,6 @@
 #include "Random.h"
 
-RandomSingelton& RandomSingleton::get()
+RandomSingelton& RandomSingelton::get()
 {
 	static RandomSingelton r;
 	return r;

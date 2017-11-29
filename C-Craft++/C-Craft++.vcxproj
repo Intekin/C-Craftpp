@@ -132,6 +132,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Context.cpp" />
     <ClCompile Include="Controller.cpp" />
     <ClCompile Include="GlobalInfo.cpp" />
     <ClCompile Include="GL\GLFunctions.cpp" />
@@ -149,6 +150,10 @@
     <ClCompile Include="Render\QuadRenderer.cpp" />
     <ClCompile Include="Render\SFMLRenderer.cpp" />
     <ClCompile Include="Render\WaterRenderer.cpp" />
+    <ClCompile Include="Shader\BasicShader.cpp" />
+    <ClCompile Include="Shader\ChunkShader.cpp" />
+    <ClCompile Include="Shader\PostProcessShader.cpp" />
+    <ClCompile Include="Shader\Shader.cpp" />
     <ClCompile Include="Texture\CubeTexture.cpp" />
     <ClCompile Include="Maths\Frustum.cpp" />
     <ClCompile Include="Item\ItemStack.cpp" />
@@ -161,7 +166,6 @@
     <ClCompile Include="States\PlayingState.cpp" />
     <ClCompile Include="Shader\ShaderLoader.cpp" />
     <ClCompile Include="Shader\ShaderProgram.cpp" />
-    <ClCompile Include="Shader\SimpleShader.cpp" />
     <ClCompile Include="Texture\BasicTexture.cpp" />
     <ClCompile Include="Texture\TextureAtlas.cpp" />
     <ClCompile Include="ToggleKey.cpp" />
@@ -178,6 +182,7 @@
     <ClCompile Include="World\World.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Context.h" />
     <ClInclude Include="Controller.h" />
     <ClInclude Include="GlobalInfo.h" />
     <ClInclude Include="GL\GLFunctions.h" />
@@ -196,6 +201,10 @@
     <ClInclude Include="Render\QuadRenderer.h" />
     <ClInclude Include="Render\SFMLRenderer.h" />
     <ClInclude Include="Render\WaterRenderer.h" />
+    <ClInclude Include="Shader\BasicShader.h" />
+    <ClInclude Include="Shader\ChunkShader.h" />
+    <ClInclude Include="Shader\PostProcessShader.h" />
+    <ClInclude Include="Shader\Shader.h" />
     <ClInclude Include="Texture\CubeTexture.h" />
     <ClInclude Include="Display.h" />
     <ClInclude Include="Entity.h" />
@@ -216,7 +225,6 @@
     <ClInclude Include="resource.h" />
     <ClInclude Include="Shader\ShaderLoader.h" />
     <ClInclude Include="Shader\ShaderProgram.h" />
-    <ClInclude Include="Shader\SimpleShader.h" />
     <ClInclude Include="Texture\BasicTexture.h" />
     <ClInclude Include="Texture\TextureAtlas.h" />
     <ClInclude Include="Util\NonMovable.h" />

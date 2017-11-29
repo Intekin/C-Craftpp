@@ -31,7 +31,7 @@ double NoiseGenerator::getHeight(int x, int z, int chunkX, int chunkZ) const noe
 		auto frequency = pow(2.0, a);
 		auto amplitude = pow(m_noiseParameters.roughness, a);
 		totalValue += noise(((double)newX) * frequency / m_noiseParameters.smoothness,
-			(((double)newZ)* frequency / m_noiseParameters.smoothness) * amplitude;
+			((double)newZ)* frequency / m_noiseParameters.smoothness) * amplitude;
 	}
 
 	auto val = (((totalValue / 2.1) + 1.2) * m_noiseParameters.amplitudes) + m_noiseParameters.heightoffset;
@@ -81,7 +81,7 @@ double NoiseGenerator::noise(double x, double z) const noexcept
 
 	auto rec1 = lerp(s, t, x - floorX);
 	auto rec2 = lerp(u, v, x - floorX);
-	auto rec3 = lerp(rec1 - rec2, z - floorZ);
+	auto rec3 = lerp(rec1 , rec2, z - floorZ);
 
 	return rec3;
 }

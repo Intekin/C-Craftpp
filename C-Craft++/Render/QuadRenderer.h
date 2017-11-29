@@ -16,7 +16,7 @@ public:
 	QuadRenderer();
 
 	void add(const glm::vec3& position);
-	void render(const Camera& camera, Config& config);
+	void render(const Camera& camera, Config* config);
 
 private:
 	std::vector<glm::vec3> m_quads;
