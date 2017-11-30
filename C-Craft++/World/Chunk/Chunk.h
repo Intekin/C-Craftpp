@@ -33,8 +33,8 @@ class Chunk : public IChunk
 
 private:
 	void addSection();
-	void addSectionsBlockTarget();
-	void addSectionsIndexTarget();
+	void addSectionsBlockTarget(int blockY);
+	void addSectionsIndexTarget(int index);
 
 	bool outOfBound(int x, int y, int z) const noexcept;
 
