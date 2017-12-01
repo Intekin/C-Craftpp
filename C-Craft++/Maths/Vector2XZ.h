@@ -8,7 +8,7 @@ struct VectorXZ
 	int x, z;
 };
 
-bool operator == (const VectorXZ& left, const VectorXZ& right) noexcept;
+bool operator ==(const VectorXZ& left, const VectorXZ& right) noexcept;
 
 namespace std
 {

@@ -21,7 +21,7 @@ void SFMLRenderer::render(sf::RenderWindow& window)
 
 	for (const auto& draw : m_draws)
 	{
-		window.draw;
+		window.draw();
 	}
 
 	window.popGLStates();

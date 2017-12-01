@@ -59,7 +59,7 @@ void ChunkMesh::bufferMesh()
 
 void ChunkMesh::deleteData()
 {
-	m_model.deleteData;
+	m_model.deleteData();
 }
 
 const Model& ChunkMesh::getModel() const

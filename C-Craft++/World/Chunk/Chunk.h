@@ -11,6 +11,7 @@ class TerrainGenerator;
 
 class Chunk : public IChunk
 {
+public:
 	Chunk() = default;
 	Chunk(World& world, const sf::Vector2i& location);
 
@@ -27,7 +28,7 @@ class Chunk : public IChunk
 
 	ChunkSection& getSection(int index);
 
-	const sf::Vector2i& getLocation() const { return m_location };
+	const sf::Vector2i& getLocation() const { return m_location; }
 
 	void deleteMeshes();
 

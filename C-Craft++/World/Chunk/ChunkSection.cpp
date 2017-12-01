@@ -64,6 +64,53 @@ sf::Vector3i ChunkSection::toWorldPosition(int x, int y, int z) const
 
 void ChunkSection::makeMesh()
 {
-	ChunkMeshBuilder(*this, m_meshes).buildMesh) = ;
+	ChunkMeshBuilder(*this, m_meshes).buildMesh();
+	m_hasMesh = true;
+	m_hasBufferedMesh = false;
+}
 
+void ChunkSection::Layer& ChunkSection::getLayer(int y) const
+{
+	if (y == -1)
+	{
+		return m_pWorld->getChunkManager().getChunk(m_location.x, m_location.z).getSection(m_location.y - 1).getLayer(CHUNK_SIZE - 1);
+	}
+	else if (y == CHUNK_SIZE)
+	{
+		return m_pWorld->getChunkManager().getChunk(m_location.x, m_location.z).getSection(m_location.y + 1).getLayer(0);
+	}
+	else
+	{
+		return m_layers[y];
+	}
+}
+
+void ChunkSection::deleteMeshes()
+{
+	if (m_hasMesh)
+	{
+		m_hasBufferedMesh = false;
+		m_hasMesh = false;
+		m_hasMesh.solidMesh.deleteData();
+		m_hasMesh.waterMesh.deleteData();
+		m_hasMesh.floraMesh.deleteData();
+	}
+}
+
+ChunkSection& ChunkSection::getAdjacent(int dx, int dz)
+{
+	int newX = m_location.x + dx;
+	int newZ = m_location.z + dz;
+
+	return m_pWorld->getChunkManager().getChunk(newX, newZ).getSection(m_location.y);
+}
+
+bool ChunkSection::outOfBounds(int value)
+{
+	return value >= CHUNK_SIZE || value < 0;
+}
+
+int ChunkSection::getIndex(int x, int y, int z)
+{
+	return y * CHUNK_AREA + z * CHUNK_SIZE + x;
 }

@@ -28,7 +28,7 @@ class ChunkSection : public IChunk
 			}
 			else
 			{
-				m_solidBlockCount++:
+				m_solidBlockCount++;
 			}
 		}
 
@@ -55,7 +55,7 @@ public:
 	void bufferMesh();
 
 	const Layer& getLayer(int y) const;
-	ChunkSection& getAdjent(int dx, int dz);
+	ChunkSection& getAdjacent(int dx, int dz);
 
 	const ChunkMeshCollection& getMeshes() const { return m_meshes; }
 	void deleteMeshes();
