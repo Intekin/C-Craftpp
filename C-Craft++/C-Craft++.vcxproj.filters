@@ -85,6 +85,15 @@
     <Filter Include="Source Files\World\Chunks">
       <UniqueIdentifier>{d699f5ba-6fdd-4f78-957b-ddc875fd8e71}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\World\Generation\Biome">
+      <UniqueIdentifier>{af2991ff-ead4-4f9e-9c08-5e2c182f284a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\World\Generation\Structure">
+      <UniqueIdentifier>{8bb09c85-69df-4bd1-9650-45a49cb76893}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\World\Generation\Terrain">
+      <UniqueIdentifier>{cd0653a4-11c5-4674-a49d-dd4fcd5debaf}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -230,6 +239,21 @@
     </ClCompile>
     <ClCompile Include="Context.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="World\Event\PlayerDigEvent.cpp">
+      <Filter>Header Files\World\Event</Filter>
+    </ClCompile>
+    <ClCompile Include="World\Generation\Biome\GrasslandBiome.cpp">
+      <Filter>Header Files\World\Generation</Filter>
+    </ClCompile>
+    <ClCompile Include="World\Generation\Biome\Biome.cpp">
+      <Filter>Header Files\World\Generation</Filter>
+    </ClCompile>
+    <ClCompile Include="World\Generation\Terrain\SuperFlatGenerator.cpp">
+      <Filter>Header Files\World\Generation\Terrain</Filter>
+    </ClCompile>
+    <ClCompile Include="World\Generation\Terrain\ClassicOverWorldGenerator.cpp">
+      <Filter>Header Files\World\Generation\Terrain</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -415,6 +439,27 @@
     </ClInclude>
     <ClInclude Include="Context.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="World\Event\IWorldEvent.h">
+      <Filter>Header Files\World\Event</Filter>
+    </ClInclude>
+    <ClInclude Include="World\Event\PlayerDigEvent.h">
+      <Filter>Header Files\World\Event</Filter>
+    </ClInclude>
+    <ClInclude Include="World\Generation\Biome\Biome.h">
+      <Filter>Header Files\World\Generation</Filter>
+    </ClInclude>
+    <ClInclude Include="World\Generation\Biome\GrasslandBiome.h">
+      <Filter>Header Files\World\Generation</Filter>
+    </ClInclude>
+    <ClInclude Include="World\Generation\Terrain\TerrainGenerator.h">
+      <Filter>Header Files\World\Generation\Terrain</Filter>
+    </ClInclude>
+    <ClInclude Include="World\Generation\Terrain\SuperFlatGenerator.h">
+      <Filter>Header Files\World\Generation\Terrain</Filter>
+    </ClInclude>
+    <ClInclude Include="World\Generation\Terrain\ClassicOverWorldGenerator.h">
+      <Filter>Header Files\World\Generation\Terrain</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

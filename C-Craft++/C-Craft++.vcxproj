@@ -179,6 +179,11 @@
     <ClCompile Include="World\Chunk\ChunkMesh.cpp" />
     <ClCompile Include="World\Chunk\ChunkMeshBuilder.cpp" />
     <ClCompile Include="World\Chunk\ChunkSection.cpp" />
+    <ClCompile Include="World\Event\PlayerDigEvent.cpp" />
+    <ClCompile Include="World\Generation\Biome\Biome.cpp" />
+    <ClCompile Include="World\Generation\Biome\GrasslandBiome.cpp" />
+    <ClCompile Include="World\Generation\Terrain\ClassicOverWorldGenerator.cpp" />
+    <ClCompile Include="World\Generation\Terrain\SuperFlatGenerator.cpp" />
     <ClCompile Include="World\World.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -241,6 +246,13 @@
     <ClInclude Include="World\Chunk\ChunkMeshBuilder.h" />
     <ClInclude Include="World\Chunk\ChunkSection.h" />
     <ClInclude Include="World\Chunk\IChunk.h" />
+    <ClInclude Include="World\Event\IWorldEvent.h" />
+    <ClInclude Include="World\Event\PlayerDigEvent.h" />
+    <ClInclude Include="World\Generation\Biome\Biome.h" />
+    <ClInclude Include="World\Generation\Biome\GrasslandBiome.h" />
+    <ClInclude Include="World\Generation\Terrain\ClassicOverWorldGenerator.h" />
+    <ClInclude Include="World\Generation\Terrain\SuperFlatGenerator.h" />
+    <ClInclude Include="World\Generation\Terrain\TerrainGenerator.h" />
     <ClInclude Include="World\World.h" />
     <ClInclude Include="World\WorldConstants.h" />
   </ItemGroup>

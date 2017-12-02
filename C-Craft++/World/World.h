@@ -26,7 +26,7 @@ public:
 	~World();
 
 	ChunkBlock getBlock(int x, int y, int z);
-	void setBlock(int x, int y, int z);
+	void setBlock(int x, int y, int z, ChunkBlock block);
 
 	void update(const Camera& camera);
 	void updateChunk(int blockX, int blockY, int blockZ);
@@ -38,7 +38,7 @@ public:
 	static VectorXZ getBlockXZ(int x, int y);
 	static VectorXZ getChunkXZ(int x, int y);
 
-	void collisionTest(Entity& entity);
+	//void collisionTest(Entity& entity);
 
 	template<typename T, typename... Args>
 	void addEvent(Args&&... args)
@@ -54,9 +54,9 @@ private:
 	ChunkManager m_chunkManager;
 
 	std::vector<std::unique_ptr<IWorldEvent>> m_events;
-	std::unordered_map<sf::vector3i, ChunkSection*> m_chunkUpdates;
+	std::unordered_map<sf::Vector3i, ChunkSection*> m_chunkUpdates;
 
-	std::atomic<bool> m_isBRunning{ true };
+	std::atomic<bool> m_isRunning{ true };
 	std::vector<std::thread> m_chunkLoadThreads;
 	std::mutex m_mainMutex;
 	std::mutex m_genMutex;

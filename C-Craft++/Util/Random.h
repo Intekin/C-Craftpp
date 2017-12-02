@@ -7,6 +7,7 @@
 
 class RandomSingelton : public Singleton
 {
+public:
 	static RandomSingelton& get();
 
 	template<typename T>

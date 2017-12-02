@@ -7,7 +7,7 @@
 ChunkManager::ChunkManager(World& world)
 	:m_world(&world)
 {
-	m_terrainGenerator = std::make_unique<ClassicOverLordWorldGenerator>();
+	m_terrainGenerator = std::make_unique<ClassicOverworldGenerator>();
 }
 
 Chunk& ChunkManager::getChunk(int x, int z)
@@ -66,9 +66,9 @@ const TerrainGenerator& ChunkManager::getTerrainGenerator() const noexcept
 {
 	return *m_terrainGenerator;
 }
-void ChunkManager::unloadChunk(int x, int y)
+void ChunkManager::unloadChunk(int x, int z)
 {
 	//todo save to faile
 	if (chunkExistsAt(x, z))
-		m_chunks.erase({ x,z });
+		m_chunks.erase({ x, z });
 }
