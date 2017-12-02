@@ -7,7 +7,7 @@
 #include "../World/World.h"
 //#include "FPSCounter.h"
 
-#include "TickManager.h"
+//#include "TickManager.h"
 #include <thread>
 #include <memory>
 //#include "SkyManager"
@@ -38,7 +38,7 @@ private:
 
 	//FPSCounter m_fpsCounter;
 
-	std::unique_ptr<TickManager> m_tickManager;
+	//std::unique_ptr<TickManager> m_tickManager;
 	std::unique_ptr<std::thread> m_tickThread;
 
 };

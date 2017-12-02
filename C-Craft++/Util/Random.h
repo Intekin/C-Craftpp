@@ -44,7 +44,7 @@ public:
 
 	void setSeed(int seed)
 	{
-		m:randomEngine(seed)
+		m_randomEngine.seed(seed);
 	}
 
 private:

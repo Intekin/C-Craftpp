@@ -28,6 +28,7 @@ public:
 
 	ChunkSection& getSection(int index);
 
+
 	const sf::Vector2i& getLocation() const { return m_location; }
 
 	void deleteMeshes();
@@ -39,10 +40,11 @@ private:
 
 	bool outOfBound(int x, int y, int z) const noexcept;
 
-	std::vector<ChunkSection>	m_chunks;
-	Array2D<int, CHUNK_SIZE>	m_highestBlock;
-	sf::Vector2i				m_location;
+	std::vector<ChunkSection>   m_chunks;
+	Array2D<int, CHUNK_SIZE>    m_highestBlocks;
+	sf::Vector2i                m_location;
 
 	World* m_pWorld;
+
 	bool m_isLoaded = false;
 };

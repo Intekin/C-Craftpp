@@ -5,9 +5,9 @@
 
 #include "../Block/ChunkBlock.h"
 
-class ChunkSection;
 class ChunkMesh;
 class BlockData;
+class ChunkSection;
 
 struct ChunkMeshCollection;
 struct BlockDataHolder;

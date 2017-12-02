@@ -26,7 +26,7 @@ public:
 
 	void setAll(T val)
 	{
-		m_array.fill(value);
+		m_array.fill(val);
 	}
 
 private:

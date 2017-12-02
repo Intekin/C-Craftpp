@@ -1,13 +1,14 @@
 #include "ChunkSection.h"
 
-#include "../Block/BlockID.h"
+#include "../Block/BlockId.h"
+
 #include "../World.h"
 #include "ChunkMeshBuilder.h"
 
 #include <iostream>
 
 ChunkSection::ChunkSection(const sf::Vector3i& location, World& world)
-	: m_aabb({CHUNK_SIZE, CHUNK_SIZE, CHUNK_SIZE})
+	: m_aabb({ CHUNK_SIZE, CHUNK_SIZE, CHUNK_SIZE })
 	, m_location(location)
 	, m_pWorld(&world)
 {
@@ -16,12 +17,15 @@ ChunkSection::ChunkSection(const sf::Vector3i& location, World& world)
 
 void ChunkSection::setBlock(int x, int y, int z, ChunkBlock block)
 {
-	if (outOfBounds(x) || outOfBounds(y) || outOfBounds(z))
+	if (outOfBounds(x) ||
+		outOfBounds(y) ||
+		outOfBounds(z))
 	{
 		auto location = toWorldPosition(x, y, z);
 		m_pWorld->setBlock(location.x, location.y, location.z, block);
 		return;
 	}
+
 	m_layers[y].update(block);
 
 	m_blocks[getIndex(x, y, z)] = block;
@@ -29,11 +33,14 @@ void ChunkSection::setBlock(int x, int y, int z, ChunkBlock block)
 
 ChunkBlock ChunkSection::getBlock(int x, int y, int z) const
 {
-	if (outOfBounds(x) || outOfBounds(y) || outOfBounds(z))
+	if (outOfBounds(x) ||
+		outOfBounds(y) ||
+		outOfBounds(z))
 	{
 		auto location = toWorldPosition(x, y, z);
-		return m_pWorld->setBlock(location.x, location.y, location.z);
+		return m_pWorld->getBlock(location.x, location.y, location.z);
 	}
+
 	return m_blocks[getIndex(x, y, z)];
 }
 
@@ -49,8 +56,9 @@ bool ChunkSection::hasMesh() const
 
 bool ChunkSection::hasBuffered() const
 {
-	m_hasBufferedMesh;
+	return m_hasBufferedMesh;
 }
+
 
 sf::Vector3i ChunkSection::toWorldPosition(int x, int y, int z) const
 {
@@ -58,7 +66,7 @@ sf::Vector3i ChunkSection::toWorldPosition(int x, int y, int z) const
 	{
 		m_location.x * CHUNK_SIZE + x,
 		m_location.y * CHUNK_SIZE + y,
-		m_location.z* CHUNK_SIZE + z
+		m_location.z * CHUNK_SIZE + z
 	};
 }
 
@@ -69,15 +77,31 @@ void ChunkSection::makeMesh()
 	m_hasBufferedMesh = false;
 }
 
-void ChunkSection::Layer& ChunkSection::getLayer(int y) const
+void ChunkSection::bufferMesh()
+{
+	m_meshes.solidMesh.bufferMesh();
+	m_meshes.waterMesh.bufferMesh();
+	m_meshes.floraMesh.bufferMesh();
+	m_hasBufferedMesh = true;
+}
+
+const ChunkSection::Layer& ChunkSection::getLayer(int y) const
 {
 	if (y == -1)
 	{
-		return m_pWorld->getChunkManager().getChunk(m_location.x, m_location.z).getSection(m_location.y - 1).getLayer(CHUNK_SIZE - 1);
+		return
+			m_pWorld->getChunkManager()
+			.getChunk(m_location.x, m_location.z)
+			.getSection(m_location.y - 1)
+			.getLayer(CHUNK_SIZE - 1);
 	}
 	else if (y == CHUNK_SIZE)
 	{
-		return m_pWorld->getChunkManager().getChunk(m_location.x, m_location.z).getSection(m_location.y + 1).getLayer(0);
+		return
+			m_pWorld->getChunkManager()
+			.getChunk(m_location.x, m_location.z)
+			.getSection(m_location.y + 1)
+			.getLayer(0);
 	}
 	else
 	{
@@ -91,11 +115,12 @@ void ChunkSection::deleteMeshes()
 	{
 		m_hasBufferedMesh = false;
 		m_hasMesh = false;
-		m_hasMesh.solidMesh.deleteData();
-		m_hasMesh.waterMesh.deleteData();
-		m_hasMesh.floraMesh.deleteData();
+		m_meshes.solidMesh.deleteData();
+		m_meshes.waterMesh.deleteData();
+		m_meshes.floraMesh.deleteData();
 	}
 }
+
 
 ChunkSection& ChunkSection::getAdjacent(int dx, int dz)
 {
@@ -107,10 +132,13 @@ ChunkSection& ChunkSection::getAdjacent(int dx, int dz)
 
 bool ChunkSection::outOfBounds(int value)
 {
-	return value >= CHUNK_SIZE || value < 0;
+	return  value >= CHUNK_SIZE ||
+		value < 0;
 }
 
 int ChunkSection::getIndex(int x, int y, int z)
 {
-	return y * CHUNK_AREA + z * CHUNK_SIZE + x;
+	return  y *
+		CHUNK_AREA + z *
+		CHUNK_SIZE + x;
 }

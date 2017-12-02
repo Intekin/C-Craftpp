@@ -87,7 +87,7 @@ void ClassicOverworldGenerator::getHeightIn(int xMin, int zMin, int xMax, int zM
 		{
 			if (x == CHUNK_SIZE)
 				continue;
-			if (y == CHUNK_SIZE)
+			if (z == CHUNK_SIZE)
 				continue;
 
 			float h = smoothInterpolation(bottomLeft, topLeft, bottomRight, topRight,
@@ -104,7 +104,7 @@ void ClassicOverworldGenerator::getBiomeMap()
 	for(int x =0; x <CHUNK_SIZE +1; x++)
 		for (int z = 0; z < CHUNK_SIZE + 1; z++)
 		{
-			int h = m_biomeNoiseGen.getHeight(x, z, location.x + 10, location.z + 10);
+			int h = m_biomeNoiseGen.getHeight(x, z, location.x + 10, location.y + 10);
 			m_biomeMap.get(x, z) = h;
 		}
 }
@@ -159,7 +159,61 @@ void ClassicOverworldGenerator::setBlocks(int maxHeight)
 				{
 					m_pChunk->setBlock(x, y, z, BlockID::Dirt);
 				}
+				else
+				{
+					m_pChunk->setBlock(x, y, z, BlockID::Stone);
+				}
 			}
+	for (auto& plant : plants)
+	{
+		int x = plant.x;
+		int z = plant.z;
 
+		auto block = getBiome(x, z).getPlant(m_random);
+		m_pChunk->setBlock(x, plant.y, z, block);
+	}
+
+	for (auto& tree : trees)
+	{
+		int x = tree.x;
+		int z = tree.z;
+
+		getBiome(x, z).makeTree(m_random, *m_pChunk, x, tree.y, z);
+	}
+}
+
+const Biome& ClassicOverworldGenerator::getBiome(int x, int z) const
+{
+	int biomeValue = m_biomeMap.get(x, z);
+
+	if (biomeValue > 100)
+	{
+		return m_grassBiome;
+		//return m_oceanBiome;
+	}/*
+	else if (biomeValue > 150)
+	{
+		return m_grassBiome;
+	}
+	else if (biomeValue > 130)
+	{
+		return m_grassBiome;
+	}
+	else if (biomeValue > 120)
+	{
+		return m_grassBiome;
+	}
+	else if (biomeValue > 110)
+	{
+		return m_grassBiome;
+	}
+	else if (biomeValue > 100)
+	{
+		return m_grassBiome;
+	}
+	else
+	{
+		return m_desertBiome;
+	}*/
 }
 

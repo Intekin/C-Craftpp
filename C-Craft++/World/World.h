@@ -6,12 +6,13 @@
 #include <mutex>
 #include <atomic>
 
-#include "Chunk\Chunk.h"
-#include "Chunk\ChunkManager.h"
-#include "..\Util\NonCopyable.h"
+#include "Chunk/Chunk.h"
+#include "Chunk/ChunkManager.h"
+#include "../Util/NonCopyable.h"
 
-#include "Event\IWorldEvent.h"
-#include "..\Config.h"
+#include "Event/IWorldEvent.h"
+
+#include "../Config.h"
 
 class RenderMaster;
 class Camera;
@@ -25,8 +26,8 @@ public:
 	World(const Camera& camera, const Config& config, Player& player);
 	~World();
 
-	ChunkBlock getBlock(int x, int y, int z);
-	void setBlock(int x, int y, int z, ChunkBlock block);
+	ChunkBlock  getBlock(int x, int y, int z);
+	void        setBlock(int x, int y, int z, ChunkBlock block);
 
 	void update(const Camera& camera);
 	void updateChunk(int blockX, int blockY, int blockZ);
@@ -35,10 +36,10 @@ public:
 
 	ChunkManager& getChunkManager();
 
-	static VectorXZ getBlockXZ(int x, int y);
-	static VectorXZ getChunkXZ(int x, int y);
+	static VectorXZ getBlockXZ(int x, int z);
+	static VectorXZ getChunkXZ(int x, int z);
 
-	//void collisionTest(Entity& entity);
+	void collisionTest(Entity& entity);
 
 	template<typename T, typename... Args>
 	void addEvent(Args&&... args)
@@ -63,7 +64,6 @@ private:
 
 	int m_loadDistance = 2;
 	const int m_renderDistance;
-	
-	glm::vec3 m_playerSpawnPoint;
 
+	glm::vec3 m_playerSpawnPoint;
 };

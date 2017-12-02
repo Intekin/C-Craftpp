@@ -1,7 +1,7 @@
 #pragma once
 
 #include <array>
-#include <SFML\Graphics.hpp>
+#include <SFML/Graphics.hpp>
 
 #include "../WorldConstants.h"
 #include "../Block/ChunkBlock.h"
@@ -34,17 +34,18 @@ class ChunkSection : public IChunk
 
 		bool isAllSolid() const
 		{
-			return m_solidBlockCount;
+			return m_solidBlockCount == CHUNK_AREA;
 		}
+
 	private:
-		int m_solidBlockCount;
+		int m_solidBlockCount = 0;
 	};
 
 public:
 	ChunkSection(const sf::Vector3i& position, World& world);
 
 	void setBlock(int x, int y, int z, ChunkBlock block) override;
-	ChunkBlock getBlock(int x, int y, int z)const override;
+	ChunkBlock getBlock(int x, int y, int z) const override;
 
 	const sf::Vector3i getLocation() const;
 
@@ -58,6 +59,7 @@ public:
 	ChunkSection& getAdjacent(int dx, int dz);
 
 	const ChunkMeshCollection& getMeshes() const { return m_meshes; }
+
 	void deleteMeshes();
 
 	const ChunkBlock* begin() { return &m_blocks[0]; }
@@ -66,17 +68,17 @@ private:
 	sf::Vector3i toWorldPosition(int x, int y, int z) const;
 
 	static bool outOfBounds(int value);
-	static int getIndex(int x, int y, int z);
+	static int  getIndex(int x, int y, int z);
 
-	std::array<ChunkBlock, CHUNK_VOLUME> m_blocks;
-	std::array<Layer, CHUNK_SIZE> m_layers;
+	std::array<ChunkBlock, CHUNK_VOLUME>    m_blocks;
+	std::array<Layer, CHUNK_SIZE>           m_layers;
 
-	ChunkMeshCollection m_meshes;
-	AABB m_aabb;
-	sf::Vector3i m_location;
+	ChunkMeshCollection       m_meshes;
+	AABB            m_aabb;
+	sf::Vector3i    m_location;
 
-	World m_pWorld;
+	World* m_pWorld;
+
 	bool m_hasMesh = false;
 	bool m_hasBufferedMesh = false;
- 
 };

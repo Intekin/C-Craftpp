@@ -1,4 +1,3 @@
-#pragma once
 
 #include "Chunk.h"
 
@@ -13,14 +12,14 @@ Chunk::Chunk(World& world, const sf::Vector2i& location)
 	: m_location(location)
 	, m_pWorld(&world)
 {
-	m_highestBlock.setAll(0);
+	m_highestBlocks.setAll(0);
 }
 
 bool Chunk::makeMesh(const Camera& camera)
 {
 	for (auto& chunk : m_chunks)
 	{
-		if (!chunk.hasMesh() && camera.getFrustum().isBoxInFrustum(chunk.m_add))
+		if (!chunk.hasMesh() && camera.getFrustum().isBoxInFrustum(chunk.m_aabb))
 		{
 			chunk.makeMesh();
 			return true;
@@ -38,7 +37,7 @@ void Chunk::setBlock(int x, int y, int z, ChunkBlock block)
 	int bY = y % CHUNK_SIZE;
 	m_chunks[y / CHUNK_SIZE].setBlock(x, bY, z, block);
 
-	if (y == m_highestBlock.get(x, z))
+	if (y == m_highestBlocks.get(x, z))
 	{
 		auto highBlock = getBlock(x, y--, z);
 		while (!highBlock.getData().isOpaque)
@@ -46,9 +45,9 @@ void Chunk::setBlock(int x, int y, int z, ChunkBlock block)
 			highBlock = getBlock(x, y--, z);
 		}
 	}
-	else if (y > m_highestBlock.get(x, z))
+	else if (y > m_highestBlocks.get(x, z))
 	{
-		m_highestBlock.get(x, z) = y;
+		m_highestBlocks.get(x, z) = y;
 	}
 
 	if(m_isLoaded)
@@ -71,7 +70,7 @@ ChunkBlock Chunk::getBlock(int x, int y, int z) const noexcept
 
 int Chunk::getHeightAt(int x, int z)
 {
-	return m_highestBlock.get(x, z);
+	return m_highestBlocks.get(x, z);
 }
 
 bool Chunk::outOfBound(int x, int y, int z) const noexcept
@@ -96,12 +95,12 @@ void Chunk::drawChunks(RenderMaster& render, const Camera& camera)
 	{
 		if (chunk.hasMesh())
 		{
-			if (chunk.hasBuffered)
+			if (chunk.hasBuffered())
 			{
 				chunk.bufferMesh();
 			}
 			if (camera.getFrustum().isBoxInFrustum(chunk.m_aabb))
-				render.drawChunk;
+				render.drawChunk(chunk);
 		}
 	}
 }
@@ -128,7 +127,7 @@ ChunkSection& Chunk::getSection(int index)
 	if (index >= (int)m_chunks.size() || index < 0)
 		return errorSection;
 
-	return m_chunks;
+	return m_chunks[index];
 }
 
 void Chunk::deleteMeshes()

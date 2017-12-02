@@ -14,7 +14,6 @@
 #include "../States/PlayingState.h"
 
 class Camera;
-class ChunkSection;
 
 class RenderMaster
 {

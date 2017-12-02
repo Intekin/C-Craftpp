@@ -243,17 +243,17 @@
     <ClCompile Include="World\Event\PlayerDigEvent.cpp">
       <Filter>Header Files\World\Event</Filter>
     </ClCompile>
-    <ClCompile Include="World\Generation\Biome\GrasslandBiome.cpp">
-      <Filter>Header Files\World\Generation</Filter>
-    </ClCompile>
-    <ClCompile Include="World\Generation\Biome\Biome.cpp">
-      <Filter>Header Files\World\Generation</Filter>
-    </ClCompile>
     <ClCompile Include="World\Generation\Terrain\SuperFlatGenerator.cpp">
       <Filter>Header Files\World\Generation\Terrain</Filter>
     </ClCompile>
     <ClCompile Include="World\Generation\Terrain\ClassicOverWorldGenerator.cpp">
       <Filter>Header Files\World\Generation\Terrain</Filter>
+    </ClCompile>
+    <ClCompile Include="World\Generation\Biome\GrasslandBiome.cpp">
+      <Filter>Header Files\World\Generation\Biome</Filter>
+    </ClCompile>
+    <ClCompile Include="World\Generation\Biome\Biome.cpp">
+      <Filter>Header Files\World\Generation\Biome</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -446,12 +446,6 @@
     <ClInclude Include="World\Event\PlayerDigEvent.h">
       <Filter>Header Files\World\Event</Filter>
     </ClInclude>
-    <ClInclude Include="World\Generation\Biome\Biome.h">
-      <Filter>Header Files\World\Generation</Filter>
-    </ClInclude>
-    <ClInclude Include="World\Generation\Biome\GrasslandBiome.h">
-      <Filter>Header Files\World\Generation</Filter>
-    </ClInclude>
     <ClInclude Include="World\Generation\Terrain\TerrainGenerator.h">
       <Filter>Header Files\World\Generation\Terrain</Filter>
     </ClInclude>
@@ -460,6 +454,12 @@
     </ClInclude>
     <ClInclude Include="World\Generation\Terrain\ClassicOverWorldGenerator.h">
       <Filter>Header Files\World\Generation\Terrain</Filter>
+    </ClInclude>
+    <ClInclude Include="World\Generation\Biome\GrasslandBiome.h">
+      <Filter>Header Files\World\Generation\Biome</Filter>
+    </ClInclude>
+    <ClInclude Include="World\Generation\Biome\Biome.h">
+      <Filter>Header Files\World\Generation\Biome</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
