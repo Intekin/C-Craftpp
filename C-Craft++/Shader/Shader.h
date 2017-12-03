@@ -16,6 +16,7 @@ public:
 
 	void loadInt(GLuint location, int value);
 	void loadFloat(GLuint location, float value);
+
 	void loadVector2(GLuint location, const glm::vec2& vect);
 	void loadVector3(GLuint location, const glm::vec3& vect);
 	void loadVector4(GLuint location, const glm::vec4& vect);

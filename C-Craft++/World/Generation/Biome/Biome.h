@@ -17,7 +17,7 @@ public:
 	virtual ChunkBlock getPlant(Rand& rand) const = 0;
 	virtual ChunkBlock getTopBlock(Rand& rand) const = 0;
 	virtual ChunkBlock getUnderWaterBlock(Rand& rand) const = 0;
-	virtual ChunkBlock getBeachBlock(Rand& rand) const = 0;
+	virtual ChunkBlock getBeachBlock(Rand& rand) const;
 	virtual void makeTree(Rand& rand, Chunk& chunk, int x, int y, int z) const = 0;
 
 	int getHeight(int v, int z, int chunkX, int chunkZ) const;

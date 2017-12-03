@@ -8,8 +8,7 @@
 #include "../../../Maths/GeneralMaths.h"
 #include <SFML\Graphics.hpp>
 
-
-//#include "../Structure/TreeGenerator.h"
+#include "../Structure/TreeGenerator.h"
 
 namespace
 {
@@ -20,10 +19,10 @@ NoiseGenerator ClassicOverworldGenerator::m_biomeNoiseGen(seed * 2);
 
 ClassicOverworldGenerator::ClassicOverworldGenerator()
 	: m_grassBiome(seed)
-	//, m_temperateForest(seed)
-	//, m_desertBiome(seed)
-	//, m_oceanBiome(seed)
-	//, m_lightForest(seed)
+	, m_temperateForest(seed)
+	, m_desertBiome(seed)
+	, m_oceanBiome(seed)
+	, m_lightForest(seed)
 {
 	setupNoise();
 }
@@ -95,6 +94,17 @@ void ClassicOverworldGenerator::getHeightIn(int xMin, int zMin, int xMax, int zM
 
 			m_heightMap.get(x, z) = h;
 		}
+}
+
+void ClassicOverworldGenerator::getHeightMap()
+{
+	constexpr static auto HALF_CHUNK = CHUNK_SIZE / 2;
+	constexpr static auto CHUNK = CHUNK_SIZE;
+
+	getHeightIn(0, 0, HALF_CHUNK, HALF_CHUNK);
+	getHeightIn(HALF_CHUNK, 0, CHUNK, HALF_CHUNK);
+	getHeightIn(0, HALF_CHUNK, HALF_CHUNK, CHUNK);
+	getHeightIn(HALF_CHUNK, HALF_CHUNK, CHUNK, CHUNK);
 }
 
 void ClassicOverworldGenerator::getBiomeMap()
@@ -186,11 +196,10 @@ const Biome& ClassicOverworldGenerator::getBiome(int x, int z) const
 {
 	int biomeValue = m_biomeMap.get(x, z);
 
-	if (biomeValue > 100)
+	if (biomeValue > 160)
 	{
-		return m_grassBiome;
-		//return m_oceanBiome;
-	}/*
+		return m_oceanBiome;
+	}
 	else if (biomeValue > 150)
 	{
 		return m_grassBiome;
@@ -214,6 +223,6 @@ const Biome& ClassicOverworldGenerator::getBiome(int x, int z) const
 	else
 	{
 		return m_desertBiome;
-	}*/
+	}
 }
 

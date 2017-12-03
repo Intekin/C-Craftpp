@@ -2,7 +2,7 @@
 #include "ShaderLoader.h"
 
 Shader::Shader(const std::string& vertexFile, const std::string& fragmentFile)
-	: m_id (loadShader(vertexFile, fragmentFile))
+	: m_id (loadShaders(vertexFile, fragmentFile))
 {
 	useProgram();
 }

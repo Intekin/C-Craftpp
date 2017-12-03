@@ -1,18 +1,22 @@
 #include "TextureAtlas.h"
 #include <array>
+#include <iostream>
 
 
 TextureAtlas::TextureAtlas(const std::string & textureFileName)
 {
+	std::cout << "TextureAtlas Loading"<< textureFileName << "\n";
+
 	sf::Image image;
 	if (!image.loadFromFile("Data/Textures/" + textureFileName + ".png"))
 	{
+		std::cout << "TextureAtlas filed to find: " << textureFileName << "\n";
 		throw std::runtime_error("Unable to open image: " + textureFileName);
 	}
 	loadFromImage(image);
 
-	m_imageSize				= 256;
-	m_individualTextureSize = 16;
+	m_imageSize				= 1024;
+	m_individualTextureSize = 64;
 }
 
 std::array<GLfloat, 8> TextureAtlas::getTexture(const sf::Vector2i & coords)

@@ -23,5 +23,5 @@ private:
 	Model m_cubeModel;
 	BasicShader m_shader;
 	BasicTexture m_basicTexture;
-	TextureAtlas m_atlasTest;
+	TextureAtlas m_atlas;
 };

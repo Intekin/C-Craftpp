@@ -23,7 +23,7 @@ public:
 	{
 		m_states.push_back(std::make_unique<T>(std::forward<Args>(args)...));
 		auto& s = m_states.back();
-		s->onOpen;
+		s->onOpen();
 	}
 	
 	void popState();

@@ -7,7 +7,7 @@
 
 #include <iostream>
 
-//std::shared_ptr<SkyManager> m_sky;
+std::shared_ptr<SkyManager> m_sky;
 
 StatePlaying::StatePlaying(Application& application, const Config& config)
 	: GameState(application)
@@ -18,13 +18,14 @@ StatePlaying::StatePlaying(Application& application, const Config& config)
 	m_crosshair.setTexture(&m_chTexture);
 	m_crosshair.setSize({ 21,21 });
 	m_crosshair.setOrigin(m_crosshair.getGlobalBounds().width / 2, m_crosshair.getGlobalBounds().height / 2);
-	m_crosshair.setPosition(application.getWindow().getSize().x / 2, application.getWindow().getSize().y);
+	m_crosshair.setPosition((float)application.getWindow().getSize().x / 2, (float)application.getWindow().getSize().y /2);
 
 	m_tickManager = std::make_unique<TickManager>();
-	m_tickManager = std::make_unique<std::thread>(std::bind(&TickManager::run, m_tickManager.get()));
+	m_tickThread = std::make_unique<std::thread>(std::bind(&TickManager::run, m_tickManager.get()));
 
-	//m_sky = std::make_unique<SkyManager>();
-	//m_tickManager->add(m_sky);
+
+	m_sky = std::make_unique<SkyManager>();
+	m_tickManager->add(m_sky);
 }
 
 void StatePlaying::handleEvent(sf::Event e)
@@ -44,11 +45,11 @@ void StatePlaying::handleInput()
 
 	for (Ray ray({ m_player.position.x, m_player.position.y + 0.6f, m_player.position.z }, m_player.rotation);
 		ray.getLength() < 6;
-		ray.step(0.05))
+		ray.step(0.05f))
 	{
-		int x = ray.getEnd().x;
-		int y = ray.getEnd().y;
-		int z = ray.getEnd().z;
+		int x = (int)ray.getEnd().x;
+		int y = (int)ray.getEnd().y;
+		int z = (int)ray.getEnd().z;
 
 		auto block = m_world.getBlock(x, y, z);
 		auto id = (BlockID)block.id;
@@ -77,16 +78,16 @@ void StatePlaying::update(float deltaTime)
 	if (m_player.position.x < 0) m_player.position.x = 0;
 	if (m_player.position.z < 0) m_player.position.z = 0;
 
-	//m_fpsCounter.update();
+	m_fpsCounter.update();
 	m_player.update(deltaTime, m_world);
 	m_world.update(m_application->getCamera());
 
-	//m_sky->Update(m_player.position);
+	m_sky->Update(m_player.position);
 }
 
 void StatePlaying::render(RenderMaster& renderer)
 {
-	//m_fpsCounter.draw(renderer);
+	m_fpsCounter.draw(renderer);
 	renderer.drawSFML(m_crosshair);
 	m_player.draw(renderer);
 	m_world.renderWorld(renderer, m_application->getCamera());

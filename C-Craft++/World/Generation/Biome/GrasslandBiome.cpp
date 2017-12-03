@@ -1,7 +1,6 @@
 #include "GrasslandBiome.h"
 
-//todo
-//#include "../Structure/TreeGenerator.h"
+#include "../Structure/TreeGenerator.h"
 
 GrasslandBiome::GrasslandBiome(int seed)
 	: Biome(getNoiseParameters(), 1000, 20, seed)
@@ -30,7 +29,7 @@ ChunkBlock GrasslandBiome::getBeachBlock(Rand& rand) const
 
 void GrasslandBiome::makeTree(Rand& rand, Chunk& chunk, int x, int y, int z) const
 {
-	//makeOakTree(chunk, rand, x, y, z);
+	makeOakTree(chunk, rand, x, y, z);
 }
 
 NoiseParameters GrasslandBiome::getNoiseParameters()

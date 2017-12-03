@@ -5,9 +5,9 @@
 
 #include "../World/Chunk/Chunk.h"
 #include "../World/World.h"
-//#include "FPSCounter.h"
+#include "../Util/FPSCounter.h"
 
-//#include "TickManager.h"
+#include "../Tick/TickManager.h"
 #include <thread>
 #include <memory>
 //#include "SkyManager"
@@ -36,9 +36,9 @@ private:
 	sf::RectangleShape m_crosshair;
 	sf::Texture m_chTexture;
 
-	//FPSCounter m_fpsCounter;
+	FPSCounter m_fpsCounter;
 
-	//std::unique_ptr<TickManager> m_tickManager;
+	std::unique_ptr<TickManager> m_tickManager;
 	std::unique_ptr<std::thread> m_tickThread;
 
 };

@@ -1,55 +1,60 @@
 #include "ShaderLoader.h"
 
 #include "../Util/FileUtil.h"
+#include <GL/glew.h>
+#include <stdexcept>
 
-
-GLuint compileShader(const GLchar* source, GLenum type)
+namespace
 {
-	auto id = glCreateShader(type);
-
-	glShaderSource(id, 1, &source, nullptr);
-	glCompileShader(id);
-
-	GLint isSuccess = 0;
-	GLchar infoLog[512];
-
-	glGetShaderiv(id, GL_COMPILE_STATUS, &isSuccess);
-
-	if (!isSuccess)
+	GLuint compileShader(const GLchar* source, GLenum shaderType)
 	{
-		glGetShaderInfoLog(id, 1024, nullptr, infoLog);
-		throw std::runtime_error("Error comiling shaders: " + std::string(infoLog));
+		auto shaderID = glCreateShader(shaderType);
+
+		glShaderSource(shaderID, 1, &source, nullptr);
+		glCompileShader(shaderID);
+
+		GLint isSuccess = 0;
+		GLchar infoLog[512];
+
+		glGetShaderiv(shaderID, GL_COMPILE_STATUS, &isSuccess);
+		if (!isSuccess)
+		{
+			glGetShaderInfoLog(shaderID, 512, nullptr, infoLog);
+			//throw std::runtime_error("Unable to load a shader: " + std::string(infoLog));
+		}
+
+		return shaderID;
 	}
 
-	return id;
+	GLuint linkProgram(GLuint vertexShaderID, GLuint fragmentShaderID)
+	{
+		auto id = glCreateProgram();
 
+		glAttachShader(id, vertexShaderID);
+		glAttachShader(id, fragmentShaderID);
+
+		glLinkProgram(id);
+
+		return id;
+	}
 }
 
-GLuint linkProgram(GLuint vertexShaderID, GLuint fragmentShaderID)
+GLuint loadShaders(	const std::string& vertexShader,
+					const std::string& fragmentShader)
 {
-	auto id = glCreateProgram();
+	std::string filePathA = "Data/Shaders/" + vertexShader + ".vert";
+	std::string filePathB = "Data/Shaders/" + fragmentShader + ".frag";
 
-	glAttachShader(id, vertexShaderID);
-	glAttachShader(id, fragmentShaderID);
-	
-	glLinkProgram(id);
-
-	return id;
-}
-
-
-GLuint loadShader(const std::string& vertexShader, const std::string& fragmentShader)
-{
-	auto vertexSource = getFileContents("Shaders/" + vertexShader + ".vert");
-	auto fragmentSource = getFileContents("Shaders/" + fragmentShader + ".frag");
+	auto vertexSource = getFileContents(filePathA);
+	auto fragmentSource = getFileContents(filePathB);
 
 	auto vertexShaderID = compileShader(vertexSource.c_str(), GL_VERTEX_SHADER);
 	auto fragmentShaderID = compileShader(fragmentSource.c_str(), GL_FRAGMENT_SHADER);
 
-	auto programID = linkProgram(vertexShaderID, fragmentShaderID);
+	auto shaderID = linkProgram(vertexShaderID, fragmentShaderID);
 
 	glDeleteShader(vertexShaderID);
 	glDeleteShader(fragmentShaderID);
 
-	return programID;
+	return shaderID;
 }

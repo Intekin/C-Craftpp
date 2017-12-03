@@ -96,7 +96,7 @@ namespace
 	void displayInfo()
 	{
 		std::ifstream inFile;
-		inFile.open("Res/info.txt");
+		inFile.open("info.txt");
 		std::string line;
 		while (std::getline(inFile, line))
 		{

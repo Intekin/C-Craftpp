@@ -1,6 +1,7 @@
 #include "Application.h"
 #include "Display.h"
 #include "States\PlayingState.h"
+#include <iostream>
 
 
 Application::Application(const Config& config)
@@ -41,9 +42,7 @@ void Application::runLoop()
 
 		m = dt.restart();
 		g_info.elapsedTime += m.asSeconds();
-
 	}
-
 }
 
 void Application::handleEvents()

@@ -28,9 +28,10 @@ private:
 	void jump();
 
 	void keyboardInput();
-	void mouseInput();
-	bool m_isOnGround();
-	bool m_isFlying();
+	void mouseInput(const sf::RenderWindow& window);
+	bool m_isOnGround = false;
+	bool m_isFlying = true;
+	bool m_isInWater = false;
 
 	std::vector<ItemStack> m_items;
 	std::vector<sf::Text> m_itemText;
@@ -39,7 +40,7 @@ private:
 	int m_heldItem = 0;
 
 	ToggleKey m_itemDown;
-	ToggleKey m_itemUo;
+	ToggleKey m_itemUp;
 	ToggleKey m_flyKey;
 
 	std::vector<ToggleKey> m_inventoryJumps;

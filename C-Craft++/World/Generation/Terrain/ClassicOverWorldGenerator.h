@@ -8,10 +8,10 @@
 #include "../../WorldConstants.h"
 
 #include "../Biome/GrasslandBiome.h"
-//#include "../Biome/TemperateForestBiome.h"
-//#include "../Biome/DesertBiome.h"
-//#include "../Biome/OceanBiome.h"
-//#include "../Biome/LightForestBiome.h"
+#include "../Biome/TemperateForestBiome.h"
+#include "../Biome/DesertBiome.h"
+#include "../Biome/OceanBiome.h"
+#include "../Biome/LightForestBiome.h"
 
 class Chunk;
 
@@ -41,12 +41,11 @@ private:
 	static NoiseGenerator m_biomeNoiseGen;
 
 	GrasslandBiome m_grassBiome;
-	//future biomes to implement
 
-	//TemperateForestBiome    m_temperateForest;
-	//DesertBiome             m_desertBiome;
-	//OceanBiome              m_oceanBiome;
-	//LightForest             m_lightForest;
+	TemperateForestBiome    m_temperateForest;
+	DesertBiome             m_desertBiome;
+	OceanBiome              m_oceanBiome;
+	LightForest             m_lightForest;
 
 	Chunk* m_pChunk = nullptr;
 };

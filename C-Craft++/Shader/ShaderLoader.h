@@ -1,6 +1,8 @@
 #pragma once
 
-#include <GL\glew.h>
 #include <string>
+#include <GL\glew.h>
 
-GLuint loadShader(const std::string& vertexShaderFile, const std::string& fragmentShaderFile);
+
+GLuint loadShaders(	const std::string& vertexShader, 
+					const std::string& fragmentShader);

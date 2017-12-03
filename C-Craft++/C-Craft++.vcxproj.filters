@@ -94,6 +94,12 @@
     <Filter Include="Header Files\World\Generation\Terrain">
       <UniqueIdentifier>{cd0653a4-11c5-4674-a49d-dd4fcd5debaf}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Tick">
+      <UniqueIdentifier>{eb67e154-c89d-4efb-9e52-60199e5dc477}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Sky">
+      <UniqueIdentifier>{6425150b-39de-4fb9-a6b7-0a33d3f118cc}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -128,9 +134,6 @@
     </ClCompile>
     <ClCompile Include="Texture\TextureAtlas.cpp">
       <Filter>Source Files\Texture</Filter>
-    </ClCompile>
-    <ClCompile Include="Shader\ShaderProgram.cpp">
-      <Filter>Source Files\Shader</Filter>
     </ClCompile>
     <ClCompile Include="Shader\ShaderLoader.cpp">
       <Filter>Source Files\Shader</Filter>
@@ -255,6 +258,57 @@
     <ClCompile Include="World\Generation\Biome\Biome.cpp">
       <Filter>Header Files\World\Generation\Biome</Filter>
     </ClCompile>
+    <ClCompile Include="Tick\TickManager.cpp">
+      <Filter>Header Files\Tick</Filter>
+    </ClCompile>
+    <ClCompile Include="Util\FileUtil.cpp">
+      <Filter>Header Files\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="Util\FPSCounter.cpp">
+      <Filter>Header Files\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="World\Generation\Biome\DesertBiome.cpp">
+      <Filter>Header Files\World\Generation\Biome</Filter>
+    </ClCompile>
+    <ClCompile Include="World\Generation\Biome\LightForestBiome.cpp">
+      <Filter>Header Files\World\Generation\Biome</Filter>
+    </ClCompile>
+    <ClCompile Include="World\Generation\Biome\OceanBiome.cpp">
+      <Filter>Header Files\World\Generation\Biome</Filter>
+    </ClCompile>
+    <ClCompile Include="World\Generation\Biome\TemperateForestBiome.cpp">
+      <Filter>Header Files\World\Generation\Biome</Filter>
+    </ClCompile>
+    <ClCompile Include="World\Generation\Structure\StructureBuilder.cpp">
+      <Filter>Header Files\World\Generation\Structure</Filter>
+    </ClCompile>
+    <ClCompile Include="World\Generation\Structure\TreeGenerator.cpp">
+      <Filter>Header Files\World\Generation\Structure</Filter>
+    </ClCompile>
+    <ClCompile Include="Shader\CloudShader.cpp">
+      <Filter>Header Files\Shader</Filter>
+    </ClCompile>
+    <ClCompile Include="Shader\FloraShader.cpp">
+      <Filter>Header Files\Shader</Filter>
+    </ClCompile>
+    <ClCompile Include="Shader\ProcSkyShader.cpp">
+      <Filter>Header Files\Shader</Filter>
+    </ClCompile>
+    <ClCompile Include="Shader\SunShader.cpp">
+      <Filter>Header Files\Shader</Filter>
+    </ClCompile>
+    <ClCompile Include="Shader\WaterShader.cpp">
+      <Filter>Header Files\Shader</Filter>
+    </ClCompile>
+    <ClCompile Include="Sky\Cloud.cpp">
+      <Filter>Header Files\Sky</Filter>
+    </ClCompile>
+    <ClCompile Include="Sky\ProcSky.cpp">
+      <Filter>Header Files\Sky</Filter>
+    </ClCompile>
+    <ClCompile Include="Sky\SkyManager.cpp">
+      <Filter>Header Files\Sky</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Display.h">
@@ -298,9 +352,6 @@
     </ClInclude>
     <ClInclude Include="Texture\TextureAtlas.h">
       <Filter>Header Files\Texture</Filter>
-    </ClInclude>
-    <ClInclude Include="Shader\ShaderProgram.h">
-      <Filter>Header Files\Shader</Filter>
     </ClInclude>
     <ClInclude Include="Shader\ShaderLoader.h">
       <Filter>Header Files\Shader</Filter>
@@ -461,13 +512,59 @@
     <ClInclude Include="World\Generation\Biome\Biome.h">
       <Filter>Header Files\World\Generation\Biome</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Data\Shaders\Simple_Vertex.glsl">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="Data\Shaders\Simple_Fragment.glsl">
-      <Filter>Resource Files</Filter>
-    </None>
+    <ClInclude Include="Tick\TickManager.h">
+      <Filter>Header Files\Tick</Filter>
+    </ClInclude>
+    <ClInclude Include="Tick\TickObject.h">
+      <Filter>Header Files\Tick</Filter>
+    </ClInclude>
+    <ClInclude Include="Util\FileUtil.h">
+      <Filter>Header Files\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="Util\FPSCounter.h">
+      <Filter>Header Files\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="World\Generation\Biome\DesertBiome.h">
+      <Filter>Header Files\World\Generation\Biome</Filter>
+    </ClInclude>
+    <ClInclude Include="World\Generation\Biome\LightForestBiome.h">
+      <Filter>Header Files\World\Generation\Biome</Filter>
+    </ClInclude>
+    <ClInclude Include="World\Generation\Biome\OceanBiome.h">
+      <Filter>Header Files\World\Generation\Biome</Filter>
+    </ClInclude>
+    <ClInclude Include="World\Generation\Biome\TemperateForestBiome.h">
+      <Filter>Header Files\World\Generation\Biome</Filter>
+    </ClInclude>
+    <ClInclude Include="World\Generation\Structure\StructureBuilder.h">
+      <Filter>Header Files\World\Generation\Structure</Filter>
+    </ClInclude>
+    <ClInclude Include="World\Generation\Structure\TreeGenerator.h">
+      <Filter>Header Files\World\Generation\Structure</Filter>
+    </ClInclude>
+    <ClInclude Include="Shader\CloudShader.h">
+      <Filter>Header Files\Shader</Filter>
+    </ClInclude>
+    <ClInclude Include="Shader\FloraShader.h">
+      <Filter>Header Files\Shader</Filter>
+    </ClInclude>
+    <ClInclude Include="Shader\ProcSkyShader.h">
+      <Filter>Header Files\Shader</Filter>
+    </ClInclude>
+    <ClInclude Include="Shader\SunShader.h">
+      <Filter>Header Files\Shader</Filter>
+    </ClInclude>
+    <ClInclude Include="Shader\WaterShader.h">
+      <Filter>Header Files\Shader</Filter>
+    </ClInclude>
+    <ClInclude Include="Sky\Cloud.h">
+      <Filter>Header Files\Sky</Filter>
+    </ClInclude>
+    <ClInclude Include="Sky\ProcSky.h">
+      <Filter>Header Files\Sky</Filter>
+    </ClInclude>
+    <ClInclude Include="Sky\SkyManager.h">
+      <Filter>Header Files\Sky</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

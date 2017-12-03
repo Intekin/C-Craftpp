@@ -89,8 +89,8 @@ void World::loadChunks(const Camera& camera)
 	while (m_isRunning)
 	{
 		bool isMeshMade = false;
-		int cameraX = camera.position.x / CHUNK_SIZE;
-		int cameraZ = camera.position.z / CHUNK_SIZE;
+		int cameraX = (int)camera.position.x / CHUNK_SIZE;
+		int cameraZ = (int)camera.position.z / CHUNK_SIZE;
 
 		for (int i = 0; i < m_loadDistance; i++)
 		{
@@ -192,8 +192,8 @@ void World::renderWorld(RenderMaster& renderer, const Camera& camera)
 	{
 		Chunk& chunk = itr->second;
 
-		int cameraX = camera.position.x;
-		int cameraZ = camera.position.z;
+		int cameraX = (int)camera.position.x;
+		int cameraZ = (int)camera.position.z;
 
 		int minX = (cameraX / CHUNK_SIZE) - m_renderDistance;
 		int minZ = (cameraZ / CHUNK_SIZE) - m_renderDistance;

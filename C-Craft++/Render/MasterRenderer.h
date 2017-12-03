@@ -9,7 +9,7 @@
 #include "FloraRenderer.h"
 #include "../Config.h"
 
-//#include "../Sky/SkyManager.h"
+#include "../Sky/SkyManager.h"
 
 #include "../States/PlayingState.h"
 
@@ -18,11 +18,13 @@ class Camera;
 class RenderMaster
 {
 public:
+	RenderMaster();
+
 	void drawSFML(const sf::Drawable& drawable);
 	void drawQuad(const glm::vec3& pos);
 	void drawCube(const Entity& cube);
 	void drawChunk(const ChunkSection& chunk);
-	//void drawSky();
+	void drawSky();
 
 	void setConfig(const Config& con);
 	void finishRender(sf::RenderWindow& window, const Camera& camera);
@@ -34,8 +36,8 @@ private:
 	CubeRenderer	m_cubeRenderer;
 
 	ChunkRenderer	m_chunkRenderer;
-	//WaterRenderer	m_waterRenderer;
-	//FloraRenderer	m_floraRenderer;
+	WaterRenderer	m_waterRenderer;
+	FloraRenderer	m_floraRenderer;
 
 	SFMLRenderer	m_sfmlRenderer;
 

@@ -1,8 +1,10 @@
 #include "BasicTexture.h"
+#include <iostream>
 
 BasicTexture::BasicTexture(const std::string& file)
 {
 	loadFromFile(file);
+	std::cout << "Init BasicTexture\n";
 }
 
 void BasicTexture::loadFromImage(const sf::Image& image)
@@ -25,17 +27,21 @@ void BasicTexture::loadFromImage(const sf::Image& image)
 
 void BasicTexture::loadFromFile(const std::string& file)
 {
+	std::cout << "BasicTexture Loading " << file << "\n";
+
 	std::string filePath = "Data/Textures/" + file + ".png";
 			
 	sf::Image image;
 
 	if (!image.loadFromFile(filePath))
 	{
+		std::cout << "BasicTexture failed to load: " << file << "\n";
+
 		throw std::runtime_error("Unable to load texture: " + filePath);
 	}
 
 	loadFromImage(image);
-		
+	
 }
 
 BasicTexture::~BasicTexture()
