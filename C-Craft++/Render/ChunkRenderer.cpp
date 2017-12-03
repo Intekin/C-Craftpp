@@ -4,7 +4,7 @@
 #include "../World/Block/BlockDatabase.h"
 
 #include "../Camera.h"
-//#include "../Sky/SkyManager.h"
+#include "../Sky/SkyManager.h"
 
 #include <iostream>
 
@@ -27,7 +27,7 @@ void ChunkRenderer::render(const Camera& camera, Config* config)
 	BlockDatabase::get().textureAtlas.bindTexture();
 
 	m_shader.loadProjViewMatrix(camera.getProjViewMatrix());
-	//m_shader.loadLightning(g_info.lightning);
+	m_shader.loadLighting(g_info.lighting);
 
 	for (auto mesh : m_chunks)
 	{

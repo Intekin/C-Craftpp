@@ -1,5 +1,7 @@
 #include "QuadRenderer.h"
+
 #include <iostream>
+
 #include "../Camera.h"
 #include "../Maths/Matrix.h"
 

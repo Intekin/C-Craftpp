@@ -87,7 +87,7 @@ void RenderMaster::finishRender(sf::RenderWindow& window, const Camera& camera)
 	m_waterRenderer.render(camera, &m_config);
 	m_floraRenderer.render(camera, &m_config);
 
-	//m_sky->render(camera);
+	m_sky->render(camera);
 
 	glBindFramebuffer(GL_FRAMEBUFFER, 0);
 	glViewport(0, 0, g_info.resolutionX, g_info.resolutionY);

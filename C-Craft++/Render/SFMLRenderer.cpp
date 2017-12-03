@@ -9,6 +9,9 @@ void SFMLRenderer::add(const sf::Drawable& drawable)
 
 void SFMLRenderer::render(sf::RenderWindow& window)
 {
+	if (m_draws.empty())
+		return;
+
 	glDisable(GL_DEPTH_TEST);
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 	glBindVertexArray(0);

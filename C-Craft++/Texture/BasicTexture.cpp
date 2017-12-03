@@ -4,17 +4,16 @@
 BasicTexture::BasicTexture(const std::string& file)
 {
 	loadFromFile(file);
-	std::cout << "Init BasicTexture\n";
 }
 
 void BasicTexture::loadFromImage(const sf::Image& image)
 {
-
 	glGenTextures(1, &m_ID);
 	glActiveTexture(GL_TEXTURE0);
 	glBindTexture(GL_TEXTURE_2D, m_ID);
 
-	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, image.getSize().x, image.getSize().y, 0, GL_RGBA, GL_UNSIGNED_BYTE, image.getPixelsPtr());
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, image.getSize().x, image.getSize().y, 
+				0, GL_RGBA, GL_UNSIGNED_BYTE, image.getPixelsPtr());
 
 	glGenerateMipmap(GL_TEXTURE_2D);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
@@ -27,7 +26,7 @@ void BasicTexture::loadFromImage(const sf::Image& image)
 
 void BasicTexture::loadFromFile(const std::string& file)
 {
-	std::cout << "BasicTexture Loading " << file << "\n";
+	std::cout << "BasicTexture loading: " << file << "\n";
 
 	std::string filePath = "Data/Textures/" + file + ".png";
 			
@@ -35,8 +34,6 @@ void BasicTexture::loadFromFile(const std::string& file)
 
 	if (!image.loadFromFile(filePath))
 	{
-		std::cout << "BasicTexture failed to load: " << file << "\n";
-
 		throw std::runtime_error("Unable to load texture: " + filePath);
 	}
 

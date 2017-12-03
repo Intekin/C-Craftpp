@@ -24,6 +24,7 @@ StatePlaying::StatePlaying(Application& application, const Config& config)
 	m_tickThread = std::make_unique<std::thread>(std::bind(&TickManager::run, m_tickManager.get()));
 
 
+
 	m_sky = std::make_unique<SkyManager>();
 	m_tickManager->add(m_sky);
 }
@@ -58,15 +59,18 @@ void StatePlaying::handleInput()
 		{
 			if (timer.getElapsedTime().asSeconds() > 0.2) //block usage speed <<
 			{
-				timer.restart();
-				m_world.addEvent<PlayerDigEvent>(sf::Mouse::Left, ray.getEnd(), m_player);
-				break;
-			}
-			else if (sf::Mouse::isButtonPressed(sf::Mouse::Right))
-			{
-				timer.restart();
-				m_world.addEvent<PlayerDigEvent>(sf::Mouse::Right, lastPosition, m_player);
-				break;
+				if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+				{
+					timer.restart();
+					m_world.addEvent<PlayerDigEvent>(sf::Mouse::Left, ray.getEnd(), m_player);
+					break;
+				}
+				else if (sf::Mouse::isButtonPressed(sf::Mouse::Right))
+				{
+					timer.restart();
+					m_world.addEvent<PlayerDigEvent>(sf::Mouse::Right, lastPosition, m_player);
+					break;
+				}
 			}
 		}
 		lastPosition = ray.getEnd();

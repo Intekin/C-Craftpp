@@ -10,9 +10,9 @@
 #include "../Tick/TickManager.h"
 #include <thread>
 #include <memory>
-//#include "SkyManager"
+#include "../Sky/SkyManager.h"
 
-//extern std::shared_ptr<SkyManager> m_sky;
+extern std::shared_ptr<SkyManager> m_sky;
 
 class StatePlaying : public GameState
 {

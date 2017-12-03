@@ -1,14 +1,10 @@
 #include "CubeTexture.h"
-#include <iostream>
-
 
 
 CubeTexture::CubeTexture(const std::array<std::string, 6>& files)
 {
-	std::cout << "Init Cube texture";
 	loadFromFiles(files);	
 }
-
 
 CubeTexture::~CubeTexture()
 {
@@ -24,11 +20,9 @@ void CubeTexture::loadFromFiles(const std::array<std::string, 6>& files)
 	for (int i = 0; i < 6; i++)
 	{
 		auto& str = files[i];
-		sf::Image image;
-		
+		sf::Image image;	
 		if (!image.loadFromFile("Data/Texture/" + str + ".png"))
 		{
-			std::cout << "Hi texture Something failed ";
 			throw std::runtime_error("Unable to load CubeTexture Part: " + str);
 		}
 
