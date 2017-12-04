@@ -135,7 +135,7 @@ void SkyManager::render(const Camera& camera)
 	sun.bindTexture();
 
 	m_shader.loadModelMatrix(transformMatrix);
-	m_shader.loadProjViewMatrix(camera.getProjViewMatrix());
+	m_shader.loadProjectionViewMatrix(camera.getProjViewMatrix());
 	m_shader.loadTime(degreesToRadians(((float)dayTime / 24000) * 360));
 
 	GL::drawElements(m_SunModel.getIndicesCount());
@@ -145,7 +145,7 @@ void SkyManager::render(const Camera& camera)
 	moon.bindTexture();
 
 	m_shader.loadModelMatrix(transformMatrix);
-	m_shader.loadProjViewMatrix(camera.getProjViewMatrix());
+	m_shader.loadProjectionViewMatrix(camera.getProjViewMatrix());
 	m_shader.loadTime(degreesToRadians(((float)dayTime / 24000) * 360));
 	GL::drawElements(m_MoonModel.getIndicesCount());
 

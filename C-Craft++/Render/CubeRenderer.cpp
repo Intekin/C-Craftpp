@@ -104,7 +104,7 @@ void CubeRenderer::render(const Camera& camera)
     m_cubeModel.bindVAO();
     m_atlasTest.bindTexture();
 
-    m_shader.loadProjViewMatrix(camera.getProjViewMatrix());
+    m_shader.loadProjectionViewMatrix(camera.getProjViewMatrix());
 
     for (auto& cube : m_cubes)
     {

@@ -1,6 +1,4 @@
-#ifndef SUN_SHADER_H
-#define SUN_SHADER_H
-
+#pragma once
 #include "BasicShader.h"
 
 class SunShader : public BasicShader{
@@ -11,6 +9,3 @@ private:
     void getUniforms() override;
     GLuint m_day;
 };
-
-
-#endif

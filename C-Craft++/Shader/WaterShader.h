@@ -1,4 +1,6 @@
-#pragma once
+#ifndef WATERSHADER_H_INCLUDED
+#define WATERSHADER_H_INCLUDED
+
 #include "BasicShader.h"
 
 class WaterShader : public BasicShader
@@ -13,3 +15,4 @@ class WaterShader : public BasicShader
         GLuint lighting;
 };
 
+#endif // WATERSHADER_H_INCLUDED

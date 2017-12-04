@@ -1,19 +1,17 @@
-
 #include "ChunkShader.h"
 
 ChunkShader::ChunkShader()
-	: BasicShader("Chunk", "Chunk")
+:   BasicShader ("Chunk", "Chunk")
 {
-	getUniforms();
+    getUniforms();
 }
 
-void ChunkShader::loadLighting(float light)
-{
-	loadFloat(lighting, light);
+void ChunkShader::loadLighting(float light){
+    loadFloat(lighting, light);
 }
 
 void ChunkShader::getUniforms()
 {
-	BasicShader::getUniforms();
-	lighting = glGetUniformLocation(m_id, "lighting");
+    BasicShader::getUniforms();
+    lighting = glGetUniformLocation(m_id, "lighting");
 }

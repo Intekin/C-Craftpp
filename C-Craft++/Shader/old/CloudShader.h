@@ -1,6 +1,4 @@
-#ifndef CLOUDSHADER_H
-#define CLOUDSHADER_H
-
+#pragma once
 #include "BasicShader.h"
 
 class CloudShader : public BasicShader
@@ -13,5 +11,3 @@ class CloudShader : public BasicShader
         void getUniforms() override;
         GLuint lighting;
 };
-
-#endif

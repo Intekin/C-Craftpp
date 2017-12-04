@@ -53,7 +53,7 @@ void Clouds::Render(const Camera& camera, glm::vec3 pos) {
 	}
 
 	m_shader.loadModelMatrix(glm::translate(glm::mat4(1.0f), glm::vec3(oldPos.x, 0, oldPos.z + movement)));
-	m_shader.loadProjViewMatrix(camera.getProjViewMatrix());
+	m_shader.loadProjectionViewMatrix(camera.getProjViewMatrix());
 	m_shader.loadLighting(g_info.lighting);
 
 	GL::drawElements(m_cloud.getIndicesCount());

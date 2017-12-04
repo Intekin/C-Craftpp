@@ -1,24 +1,25 @@
 #include "BasicShader.h"
 
 BasicShader::BasicShader(const std::string& vertexFile, const std::string& fragmentFile)
-	: Shader(vertexFile, fragmentFile)
+:   Shader(vertexFile, fragmentFile)
 {
-	getUniforms();
+    getUniforms();
 }
 
-void BasicShader::loadProjViewMatrix(const glm::mat4& pvMatrix)
+void BasicShader::loadProjectionViewMatrix(const glm::mat4& pvMatrix)
 {
-	loadMatrix4(m_locationProjViewMatrix, pvMatrix);
+    loadMatrix4(m_locationProjectionViewMatrix,
+                pvMatrix);
 }
 
 void BasicShader::loadModelMatrix(const glm::mat4& matrix)
 {
-	loadMatrix4(m_loacationModelMatrix, matrix);
+    loadMatrix4(m_locationModelMatrix, matrix);
 }
 
 void BasicShader::getUniforms()
 {
-	useProgram();
-	m_locationProjViewMatrix = glGetUniformLocation(m_id, "projViewMatrix");
-	m_loacationModelMatrix = glGetUniformLocation(m_id, "modelMatrix");
+    useProgram();
+    m_locationProjectionViewMatrix = glGetUniformLocation(m_id, "projViewMatrix");
+    m_locationModelMatrix          = glGetUniformLocation(m_id, "modelMatrix");
 }

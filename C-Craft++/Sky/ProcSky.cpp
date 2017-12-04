@@ -79,7 +79,7 @@ void ProcSky::Render(const Camera& camera)
 	m_skybox.bindVAO();
 
 	m_shader.loadViewMatrix(camera.getViewMatrix());
-	m_shader.loadProjMatrix(camera.getProjectionMatrix());
+	m_shader.loadProjectionViewMatrix(camera.getProjectionMatrix());
 	m_shader.loadTime(g_info.dayTime);
 
 	GL::drawElements(m_skybox.getIndicesCount());

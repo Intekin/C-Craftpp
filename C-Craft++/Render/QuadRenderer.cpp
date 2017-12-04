@@ -47,7 +47,7 @@ void QuadRenderer::render(const Camera& camera, Config* conf)
 
     m_quadModel.bindVAO();
 
-    m_shader.loadProjViewMatrix(glm::ortho(0, 1, 0, 1, 0, 1));
+    m_shader.loadProjectionViewMatrix(glm::ortho(0, 1, 0, 1, 0, 1));
 
     for (auto& quad : m_quads)
     {

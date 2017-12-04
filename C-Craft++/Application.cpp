@@ -16,11 +16,13 @@ void Application::runLoop()
 {
 	sf::Clock dtTimer;
 	sf::Clock dt;
-	sf::Time m;
+	
 	bool running = true;
 
 	m_renderMaster.setConfig(m_config);
 	m_context.window.setFramerateLimit(60);
+
+	sf::Time m;
 
 	while (running && !m_states.empty())
 	{

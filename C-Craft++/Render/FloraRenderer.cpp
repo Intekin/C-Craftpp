@@ -25,7 +25,7 @@ void FloraRenderer::render(const Camera& camera, Config* conf)
     glDisable(GL_CULL_FACE);
     m_shader.useProgram();
 
-    m_shader.loadProjViewMatrix(camera.getProjViewMatrix());
+    m_shader.loadProjectionViewMatrix(camera.getProjViewMatrix());
     m_shader.loadTime(g_info.elapsedTime);
     m_shader.loadLight(g_info.lighting);
 

@@ -1,6 +1,4 @@
-#ifndef FLORASHADER_H_INCLUDED
-#define FLORASHADER_H_INCLUDED
-
+#pragma once
 #include "BasicShader.h"
 
 class FloraShader : public BasicShader
@@ -14,6 +12,3 @@ class FloraShader : public BasicShader
         GLuint m_time;
         GLuint m_light;
 };
-
-
-#endif // FLORASHADER_H_INCLUDED

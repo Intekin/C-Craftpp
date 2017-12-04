@@ -1,17 +1,15 @@
-#ifndef CLOUDSHADER_H
-#define CLOUDSHADER_H
-
+#pragma once
 #include "BasicShader.h"
 
-class CloudShader : public BasicShader
+class WaterShader : public BasicShader
 {
     public:
-        CloudShader();
-
+        WaterShader();
+        void loadTime (const float& time);
         void loadLighting(float light);
     private:
         void getUniforms() override;
+        GLuint m_time;
         GLuint lighting;
 };
 
-#endif

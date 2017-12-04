@@ -18,7 +18,7 @@ void ProcSkyShader::loadViewMatrix(glm::mat4 viewMatrix)
 }
 
 
-void ProcSkyShader::loadProjectionMatrix(const glm::mat4& proj)
+void ProcSkyShader::loadProjMatrix(const glm::mat4& proj)
 {
     Shader::loadMatrix4(m_locationProjection, proj);
 }
