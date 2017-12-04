@@ -146,8 +146,8 @@
     <ClCompile Include="Render\ChunkRenderer.cpp" />
     <ClCompile Include="Render\CubeRenderer.cpp" />
     <ClCompile Include="Render\FloraRenderer.cpp" />
-    <ClCompile Include="Render\MasterRenderer.cpp" />
     <ClCompile Include="Render\QuadRenderer.cpp" />
+    <ClCompile Include="Render\RenderMaster.cpp" />
     <ClCompile Include="Render\SFMLRenderer.cpp" />
     <ClCompile Include="Render\WaterRenderer.cpp" />
     <ClCompile Include="Shader\BasicShader.cpp" />
@@ -166,7 +166,6 @@
     <ClCompile Include="Maths\Frustum.cpp" />
     <ClCompile Include="Item\ItemStack.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Display.cpp" />
     <ClCompile Include="Item\Material.cpp" />
     <ClCompile Include="Maths\Matrix.cpp" />
     <ClCompile Include="Model.cpp" />
@@ -218,8 +217,8 @@
     <ClInclude Include="Render\ChunkRenderer.h" />
     <ClInclude Include="Render\CubeRenderer.h" />
     <ClInclude Include="Render\FloraRenderer.h" />
-    <ClInclude Include="Render\MasterRenderer.h" />
     <ClInclude Include="Render\QuadRenderer.h" />
+    <ClInclude Include="Render\RenderMaster.h" />
     <ClInclude Include="Render\SFMLRenderer.h" />
     <ClInclude Include="Render\WaterRenderer.h" />
     <ClInclude Include="Shader\BasicShader.h" />
@@ -235,7 +234,6 @@
     <ClInclude Include="Sky\ProcSky.h" />
     <ClInclude Include="Sky\SkyManager.h" />
     <ClInclude Include="Texture\CubeTexture.h" />
-    <ClInclude Include="Display.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="Maths\Frustum.h" />
     <ClInclude Include="States\GameState.h" />

@@ -6,7 +6,7 @@
 #include <iomanip>
 
 #include "../World/World.h"
-#include "../Render/MasterRenderer.h"
+#include "../Render/RenderMaster.h"
 
 sf::Font f;
 

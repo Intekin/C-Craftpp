@@ -1,7 +1,7 @@
 
 #include "Chunk.h"
 
-#include "../../Render/MasterRenderer.h"
+#include "../../Render/RenderMaster.h"
 #include "../../Util/Random.h"
 #include "../../Maths/NoiseGenerator.h"
 #include "../../Camera.h"

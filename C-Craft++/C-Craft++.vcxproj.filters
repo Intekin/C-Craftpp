@@ -105,9 +105,6 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Display.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Application.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -216,9 +213,6 @@
     <ClCompile Include="Render\QuadRenderer.cpp">
       <Filter>Source Files\Renderer</Filter>
     </ClCompile>
-    <ClCompile Include="Render\MasterRenderer.cpp">
-      <Filter>Source Files\Renderer</Filter>
-    </ClCompile>
     <ClCompile Include="Render\FloraRenderer.cpp">
       <Filter>Source Files\Renderer</Filter>
     </ClCompile>
@@ -309,11 +303,11 @@
     <ClCompile Include="Sky\SkyManager.cpp">
       <Filter>Header Files\Sky</Filter>
     </ClCompile>
+    <ClCompile Include="Render\RenderMaster.cpp">
+      <Filter>Source Files\Renderer</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Display.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Application.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -461,9 +455,6 @@
     <ClInclude Include="Render\FloraRenderer.h">
       <Filter>Header Files\Renderer</Filter>
     </ClInclude>
-    <ClInclude Include="Render\MasterRenderer.h">
-      <Filter>Header Files\Renderer</Filter>
-    </ClInclude>
     <ClInclude Include="Render\QuadRenderer.h">
       <Filter>Header Files\Renderer</Filter>
     </ClInclude>
@@ -565,6 +556,9 @@
     </ClInclude>
     <ClInclude Include="Sky\SkyManager.h">
       <Filter>Header Files\Sky</Filter>
+    </ClInclude>
+    <ClInclude Include="Render\RenderMaster.h">
+      <Filter>Header Files\Renderer</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

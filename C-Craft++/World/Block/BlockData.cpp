@@ -1,15 +1,17 @@
 #include "BlockData.h"
-
+#include <iostream>
 #include <fstream>
 
 BlockData::BlockData(const std::string& fileName)
 {
 	std::ifstream inFile("Data/Blocks/" + fileName + ".block");
-
+	
 	if (!inFile.is_open())
 	{
 		throw std::runtime_error("Unable to load file: " + fileName + " !!!");
 	}
+
+	std::cout << fileName << ".block has been loaded\n";
 
 	std::string line;
 	while (std::getline(inFile, line))

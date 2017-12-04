@@ -4,7 +4,7 @@
 #include <memory>
 
 #include "States/GameState.h"
-#include "Render/MasterRenderer.h"
+#include "Render/RenderMaster.h"
 
 #include "Context.h"
 #include "Camera.h"
@@ -36,7 +36,7 @@ public:
 	void turnOnMouse();
 
 private:
-	void handleEvents();
+	void handleEvents(bool& running);
 
 	std::vector<std::unique_ptr<GameState>> m_states;
 

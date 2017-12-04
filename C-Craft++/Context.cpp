@@ -1,6 +1,7 @@
 #include "Context.h"
 #include "GlobalInfo.h"
 #include <GL\glew.h>
+#include <iostream>
 
 sf::RenderWindow* g_window;
 
@@ -12,6 +13,9 @@ Context::Context(const Config& config)
 	settings.minorVersion = 3;
 	settings.depthBits = 24;
 	settings.stencilBits = 8;
+	settings.attributeFlags = sf::ContextSettings::Debug;
+
+	std::cout << "OpenGL version:" << settings.majorVersion << "." << settings.minorVersion << std::endl;
 
 	if (config.isFullscreen)
 	{

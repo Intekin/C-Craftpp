@@ -1,4 +1,5 @@
-#pragma once
+#ifndef CUBERENDERER_H_INCLUDED
+#define CUBERENDERER_H_INCLUDED
 
 #include <vector>
 
@@ -13,15 +14,21 @@ struct Entity;
 
 class CubeRenderer
 {
-public:
-	CubeRenderer();
-	void add(const Entity& entity);
-	void render(const Camera& camera);
-private:
-	std::vector<const Entity*> m_cubes;
+    public:
+        CubeRenderer();
 
-	Model m_cubeModel;
-	BasicShader m_shader;
-	BasicTexture m_basicTexture;
-	TextureAtlas m_atlas;
+        void add(const Entity& entity);
+
+        void render(const Camera& camera);
+
+    private:
+        std::vector<const Entity*> m_cubes;
+
+        Model m_cubeModel;
+        BasicShader m_shader;
+        BasicTexture m_basicTexture;
+
+        TextureAtlas m_atlasTest;
 };
+
+#endif // CUBERENDERER_H_INCLUDED

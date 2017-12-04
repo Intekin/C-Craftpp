@@ -2,7 +2,7 @@
 
 #include "../Application.h"
 #include "../Maths/Ray.h"
-#include "../Render/MasterRenderer.h"
+#include "../Render/RenderMaster.h"
 #include "../World/Event/PlayerDigEvent.h"
 
 #include <iostream>

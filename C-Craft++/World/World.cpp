@@ -6,7 +6,7 @@
 #include "../Maths/Vector2XZ.h"
 #include "../Camera.h"
 #include "../ToggleKey.h"
-#include "../Render/MasterRenderer.h"
+#include "../Render/RenderMaster.h"
 #include "../Player/Player.h"
 #include "../Util/Random.h"
 

@@ -1,4 +1,6 @@
-#pragma once
+#ifndef FLORARENDERER_H_INCLUDED
+#define FLORARENDERER_H_INCLUDED
+
 #include <vector>
 #include <SFML/Graphics.hpp>
 
@@ -12,12 +14,15 @@ class Camera;
 
 class FloraRenderer
 {
-public:
-	void add(const ChunkMesh& mesh);
-	void render(const Camera& camera, Config* conf);
+    public:
+        void add(const ChunkMesh& mesh);
+        void render(const Camera& camera, Config* conf);
 
-private:
-	std::vector<const RenderInfo*> m_chunks;
+    private:
+        std::vector<const RenderInfo*> m_chunks;
 
-	FloraShader m_shader;
+        FloraShader m_shader;
 };
+
+
+#endif // FLORARENDERER_H_INCLUDED

@@ -1,5 +1,5 @@
 #include "FPSCounter.h"
-#include "../Render/MasterRenderer.h"
+#include "../Render/RenderMaster.h"
 #include <iostream>
 
 FPSCounter::FPSCounter()

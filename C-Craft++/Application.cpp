@@ -17,10 +17,12 @@ void Application::runLoop()
 	sf::Clock dtTimer;
 	sf::Clock dt;
 	sf::Time m;
+	bool running = true;
 
 	m_renderMaster.setConfig(m_config);
+	m_context.window.setFramerateLimit(60);
 
-	while (m_context.window.isOpen() && !m_states.empty())
+	while (running && !m_states.empty())
 	{
 		auto deltaTime = dtTimer.restart();
 		g_info.deltaTime = deltaTime.asSeconds();
@@ -33,7 +35,7 @@ void Application::runLoop()
 		state.render(m_renderMaster);
 		m_renderMaster.finishRender(m_context.window, m_camera);
 
-		handleEvents();
+		handleEvents(running);
 		if (m_isPopState)
 		{
 			m_isPopState = false;
@@ -45,7 +47,7 @@ void Application::runLoop()
 	}
 }
 
-void Application::handleEvents()
+void Application::handleEvents(bool& running)
 {
 	sf::Event e;
 	
@@ -54,14 +56,15 @@ void Application::handleEvents()
 		switch (e.type)
 		{
 		case sf::Event::Closed:
-			m_context.window.close();
+			running = false;
 			break;
 
 		case sf::Event::KeyPressed:
 			switch (e.key.code)
 			{
 			case sf::Keyboard::Escape:
-				m_context.window.close();
+				running = false;
+				//m_context.window.close();
 				break;
 
 			default:
