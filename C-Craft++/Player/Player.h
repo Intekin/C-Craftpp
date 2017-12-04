@@ -1,5 +1,4 @@
-#ifndef PLAYER_H_INCLUDED
-#define PLAYER_H_INCLUDED
+#pragma once
 
 #include <SFML/Graphics.hpp>
 #include <vector>
@@ -33,13 +32,16 @@ class Player : public Entity
         void keyboardInput();
         void mouseInput(const sf::RenderWindow& window);
         bool m_isOnGround = false;
-        bool m_isFlying   = true;
+        bool m_isFlying   = false;
         bool m_isInWater  = false;
 
         std::vector<ItemStack> m_items;
         std::vector<sf::Text>  m_itemText;
         sf::Text m_posPrint;
+
         int m_heldItem = 0;
+		int m_heldItemSlots = 10;
+		int m_inventorySlots = 48;
 
         ToggleKey m_itemDown;
         ToggleKey m_itemUp;
@@ -50,6 +52,3 @@ class Player : public Entity
         glm::vec3 m_acceleation;
 };
 
-
-
-#endif // PLAYER_H_INCLUDED

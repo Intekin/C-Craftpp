@@ -13,12 +13,12 @@
 sf::Font f;
 
 Player::Player()
-:   Entity  ({2500, 125, 2500}, {0, 0, 0}, {0.3, 1.0, 0.3})
+:   Entity  ({10, 125, 10}, {0, 0, 0}, {0.3, 1.0, 0.3})
 ,   m_itemDown  (sf::Keyboard::Down)
 ,   m_itemUp    (sf::Keyboard::Up)
 ,   m_flyKey    (sf::Keyboard::F)
 {
-    for (int i = 0; i < 5; i++)
+    for (int i = 0; i < m_heldItemSlots; i++)
     {
         m_inventoryJumps.emplace_back
             ((sf::Keyboard::Key(sf::Keyboard::Num1 + i)));
@@ -28,12 +28,12 @@ Player::Player()
     f.loadFromFile("Data/Fonts/rs.ttf");
 
 
-    for (int i = 0; i < 5; i++)
+    for (int i = 0; i < m_heldItemSlots; i++)
     {
         m_items.emplace_back(Material::NOTHING, 0);
     }
 
-    for (float i = 0; i < 5; i++)
+    for (float i = 0; i < m_heldItemSlots; i++)
     {
         sf::Text t;
         t.setFont(f);
@@ -96,7 +96,7 @@ void Player::handleInput(const sf::RenderWindow& window)
         }
     }
 
-    for (int i = 0; i < 5; i++)
+    for (int i = 0; i < m_heldItemSlots; i++)
     {
         if(m_inventoryJumps[i].isKeyPressed())
         {
@@ -198,6 +198,7 @@ void Player::keyboardInput()
 	{
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
 		{
+			//Somewhat working, neeths more math
 			float s = speed;
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::LControl)) s *= 5;
 			m_acceleation.x += -glm::cos(glm::radians(rotation.y + 90)) * s;
