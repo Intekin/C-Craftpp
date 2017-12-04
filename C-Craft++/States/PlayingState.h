@@ -1,5 +1,5 @@
-#pragma once
-
+#ifndef PLAYINGSTATE_H_INCLUDED
+#define PLAYINGSTATE_H_INCLUDED
 #include "GameState.h"
 #include "../Player/Player.h"
 
@@ -16,29 +16,31 @@ extern std::shared_ptr<SkyManager> m_sky;
 
 class StatePlaying : public GameState
 {
-public:
-	StatePlaying(Application& application, const Config& config);
-	~StatePlaying();
+    public:
+        StatePlaying(Application& app, const Config& config);
+        ~StatePlaying();
 
-	void handleEvent(sf::Event e) override;
-	void handleInput() override;
+        void handleEvent(sf::Event e) override;
+        void handleInput() override;
 
-	void update(float deltaTime) override;
+        void update(float deltaTime) override;
 
-	void render(RenderMaster& render) override;
+        void render(RenderMaster& renderer) override;
 
-	void onOpen() override;
+        void onOpen() override;
 
-private:
-	Player m_player;
-	World m_world;
+    private:
+        Player m_player;
+        World m_world;
 
-	sf::RectangleShape m_crosshair;
-	sf::Texture m_chTexture;
+        sf::RectangleShape m_crosshair;
+        sf::Texture        m_chTexture;
 
-	FPSCounter m_fpsCounter;
+        FPSCounter m_fpsCounter;
 
-	std::unique_ptr<TickManager> m_tickManager;
-	std::unique_ptr<std::thread> m_tickThread;
+        std::unique_ptr<TickManager> m_tickManager;
+        std::unique_ptr<std::thread> m_tickThread;
 
 };
+
+#endif // PLAYINGSTATE_H_INCLUDED

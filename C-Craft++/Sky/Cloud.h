@@ -1,4 +1,6 @@
-#pragma once
+#ifndef CLOUD_H
+#define CLOUD_H
+
 #include "../Shader/CloudShader.h"
 #include "../Model.h"
 #include "../Camera.h"
@@ -6,17 +8,18 @@
 
 class Camera;
 
-class Clouds 
-{
+class Clouds{
 public:
-	Clouds();
+    Clouds();
 
-	void Render(const Camera& camera, glm::vec3 position);
+    void Render(const Camera& camera, glm::vec3 position);
 private:
-	CloudShader m_shader;
-	Model m_cloud;
-	BasicTexture cloud;
+    CloudShader m_shader;
+    Model m_cloud;
+    BasicTexture cloud;
 
-	glm::vec3 oldPos;
-	float movement;
+    glm::vec3 oldPos;
+    float movement;
 };
+
+#endif

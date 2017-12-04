@@ -22,7 +22,7 @@ void WaterRenderer::render(const Camera& camera, Config* conf)
     glEnable(GL_BLEND);
     glDisable(GL_CULL_FACE);
     m_shader.useProgram();
-    m_shader.loadProjectionViewMatrix(camera.getProjViewMatrix());
+    m_shader.loadProjectionViewMatrix(camera.getProjectionViewMatrix());
     m_shader.loadTime(g_info.elapsedTime);
     m_shader.loadLighting(g_info.lighting);
     for (auto mesh : m_chunks)

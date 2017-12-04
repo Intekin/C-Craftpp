@@ -9,96 +9,97 @@
 
 std::shared_ptr<SkyManager> m_sky;
 
-StatePlaying::StatePlaying(Application& application, const Config& config)
-	: GameState(application)
-	, m_world(application.getCamera(), config, m_player)
+StatePlaying::StatePlaying(Application& app, const Config& config)
+: GameState(app)
+,   m_world     (app.getCamera(), config, m_player)
 {
-	application.getCamera().hookEntity(m_player);
-	m_chTexture.loadFromFile("Data/Textures/ch.png");
-	m_crosshair.setTexture(&m_chTexture);
-	m_crosshair.setSize({ 21,21 });
-	m_crosshair.setOrigin(m_crosshair.getGlobalBounds().width / 2, m_crosshair.getGlobalBounds().height / 2);
-	m_crosshair.setPosition((float)application.getWindow().getSize().x / 2, (float)application.getWindow().getSize().y /2);
+    app.getCamera().hookEntity(m_player);
+    m_chTexture.loadFromFile("Data/Textures/ch.png");
+    m_crosshair.setTexture(&m_chTexture);
+    m_crosshair.setSize({21, 21});
+    m_crosshair.setOrigin(m_crosshair.getGlobalBounds().width / 2,
+                          m_crosshair.getGlobalBounds().height / 2);
+    m_crosshair.setPosition(app.getWindow().getSize().x / 2,
+                            app.getWindow().getSize().y / 2);
 
-	m_tickManager = std::make_unique<TickManager>();
-	m_tickThread = std::make_unique<std::thread>(std::bind(&TickManager::run, m_tickManager.get()));
+    m_tickManager   = std::make_unique<TickManager>();
+    m_tickThread    = std::make_unique<std::thread>(std::bind(&TickManager::run, m_tickManager.get()));
 
-
-
-	m_sky = std::make_unique<SkyManager>();
-	m_tickManager->add(m_sky);
+    m_sky = std::make_unique<SkyManager>();
+    m_tickManager->add(m_sky);
 }
 
 void StatePlaying::handleEvent(sf::Event e)
-{}
+{ }
 
 StatePlaying::~StatePlaying()
 {
-	m_tickThread->join();
+    m_tickThread->join();
 }
 
 void StatePlaying::handleInput()
 {
-	m_player.handleInput(m_application->getWindow());
-	
-	static sf::Clock timer;
-	glm::vec3 lastPosition;
+    m_player.handleInput(m_pApplication->getWindow());
 
-	for (Ray ray({ m_player.position.x, m_player.position.y + 0.6f, m_player.position.z }, m_player.rotation);
-		ray.getLength() < 6;
-		ray.step(0.05f))
-	{
-		int x = (int)ray.getEnd().x;
-		int y = (int)ray.getEnd().y;
-		int z = (int)ray.getEnd().z;
+    static sf::Clock timer;
+    glm::vec3 lastPosition;
 
-		auto block = m_world.getBlock(x, y, z);
-		auto id = (BlockID)block.id;
+    for (Ray ray({m_player.position.x, m_player.position.y + 0.6f, m_player.position.z}, m_player.rotation); //Corrected for camera offset
+             ray.getLength() < 6;
+             ray.step(0.05))
+    {
+        int x = ray.getEnd().x;
+        int y = ray.getEnd().y;
+        int z = ray.getEnd().z;
 
-		if (id != BlockID::Air && id != BlockID::Water)
-		{
-			if (timer.getElapsedTime().asSeconds() > 0.2) //block usage speed <<
-			{
-				if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
-				{
-					timer.restart();
-					m_world.addEvent<PlayerDigEvent>(sf::Mouse::Left, ray.getEnd(), m_player);
-					break;
-				}
-				else if (sf::Mouse::isButtonPressed(sf::Mouse::Right))
-				{
-					timer.restart();
-					m_world.addEvent<PlayerDigEvent>(sf::Mouse::Right, lastPosition, m_player);
-					break;
-				}
-			}
-		}
-		lastPosition = ray.getEnd();
-	}
+        auto block  = m_world.getBlock(x, y, z);
+        auto id     = (BlockID)block.id;
+
+        if(id != BlockID::Air && id != BlockID::Water)
+        {
+            if (timer.getElapsedTime().asSeconds() > 0.2)
+            {
+                if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+                {
+                    timer.restart();
+                    m_world.addEvent<PlayerDigEvent>(sf::Mouse::Left, ray.getEnd(), m_player);
+                    break;
+                }
+                else if (sf::Mouse::isButtonPressed(sf::Mouse::Right))
+                {
+                    timer.restart();
+                    m_world.addEvent<PlayerDigEvent>(sf::Mouse::Right, lastPosition, m_player);
+                    break;
+                }
+            }
+        }
+        lastPosition = ray.getEnd();
+    }
 }
 
 void StatePlaying::update(float deltaTime)
 {
-	if (m_player.position.x < 0) m_player.position.x = 0;
-	if (m_player.position.z < 0) m_player.position.z = 0;
+    if (m_player.position.x < 0) m_player.position.x = 0;
+    if (m_player.position.z < 0) m_player.position.z = 0;
 
-	m_fpsCounter.update();
-	m_player.update(deltaTime, m_world);
-	m_world.update(m_application->getCamera());
+    m_fpsCounter.update();
+    m_player.update(deltaTime, m_world);
+    m_world.update(m_pApplication->getCamera());
 
-	m_sky->Update(m_player.position);
+    m_sky->Update(m_player.position);
 }
 
 void StatePlaying::render(RenderMaster& renderer)
 {
-	m_fpsCounter.draw(renderer);
-	renderer.drawSFML(m_crosshair);
-	m_player.draw(renderer);
-	m_world.renderWorld(renderer, m_application->getCamera());
+    static sf::Clock dt;
+
+    m_fpsCounter.draw(renderer);
+    renderer.drawSFML(m_crosshair);
+    m_player.draw(renderer);
+    m_world.renderWorld(renderer, m_pApplication->getCamera());
 }
 
 void StatePlaying::onOpen()
 {
-	m_application->turnOffMouse();
+    m_pApplication->turnOffMouse();
 }
-

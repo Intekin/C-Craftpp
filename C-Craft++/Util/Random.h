@@ -5,10 +5,10 @@
 
 #include "Singleton.h"
 
-class RandomSingelton : public Singleton
+class RandomSingleton : public Singleton
 {
 public:
-	static RandomSingelton& get();
+	static RandomSingleton& get();
 
 	template<typename T>
 	T intInRange(T low, T high)
@@ -19,7 +19,7 @@ public:
 	}
 
 private:
-	RandomSingelton();
+	RandomSingleton();
 	std::mt19937 m_randomEngine;
 };
 

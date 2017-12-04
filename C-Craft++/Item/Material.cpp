@@ -53,7 +53,7 @@ BlockID Material::toBlockID() const
 		return BlockID::TallGrass;
 
 	case RedFlower:
-		return BlockID::RedFlower;
+		return BlockID::Rose;
 
 	case DeadShrub:
 		return BlockID::DeadShrub;
@@ -88,7 +88,7 @@ const Material& Material::toMaterial(BlockID id)
 	case BlockID::Cactus:
 		return CACTUS_BLOCK;
 
-	case BlockID::RedFlower:
+	case BlockID::Rose:
 		return RED_FLOWER;
 
 	case BlockID::TallGrass:

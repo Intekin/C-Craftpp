@@ -1,4 +1,5 @@
-#pragma once
+#ifndef CHUNKMANAGER_H_INCLUDED
+#define CHUNKMANAGER_H_INCLUDED
 
 #include <functional>
 #include <memory>
@@ -14,27 +15,29 @@ using ChunkMap = std::unordered_map<VectorXZ, Chunk>;
 
 class ChunkManager
 {
-public:
-	ChunkManager(World& world);
+    public:
+        ChunkManager(World& world);
 
-	Chunk& getChunk(int x, int z);
-	ChunkMap& getChunks();
+        Chunk&      getChunk    (int x, int z);
+        ChunkMap&   getChunks   ();
 
-	bool makeMesh(int x, int z, const Camera& camera);
-	bool chunkLoadedAt(int x, int z) const;
-	bool chunkExistsAt(int x, int z) const;
+        bool makeMesh(int x, int z, const Camera& camera);
 
-	void loadChunk(int x, int z);
-	void unloadChunk(int x, int z);
+        bool chunkLoadedAt(int x, int z) const;
+        bool chunkExistsAt(int x, int z) const;
 
-	void deleteMeshes();
+        void loadChunk(int x, int z);
+        void unloadChunk(int x, int z);
 
-	const TerrainGenerator& getTerrainGenerator() const noexcept;
+        void deleteMeshes();
 
-private:
-	ChunkMap m_chunks;
-	std::unique_ptr<TerrainGenerator> m_terrainGenerator;
+        const TerrainGenerator& getTerrainGenerator() const noexcept;
 
-	World* m_world;
+    private:
+        ChunkMap m_chunks;
+        std::unique_ptr<TerrainGenerator> m_terrainGenerator;
 
+        World* m_world;
 };
+
+#endif // CHUNKMANAGER_H_INCLUDED

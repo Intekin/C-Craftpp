@@ -36,11 +36,11 @@ void LightForest::makeTree(Rand& rand, Chunk& chunk, int x, int y, int z) const
 NoiseParameters LightForest::getNoiseParameters()
 {
 	NoiseParameters heightParams;
-	heightParams.ocaves = 9;
-	heightParams.amplitudes = 85;
-	heightParams.smoothness = 235;
-	heightParams.heightoffset = -20;
-	heightParams.roughness = 0.51;
+	heightParams.octaves = 5;
+	heightParams.amplitude = 120;
+	heightParams.smoothness = 1035;
+	heightParams.heightOffset = 0;
+	heightParams.roughness = 0.75;
 
 	return heightParams;
 }
@@ -48,6 +48,6 @@ NoiseParameters LightForest::getNoiseParameters()
 ChunkBlock LightForest::getPlant(Rand& rand) const
 {
 	return rand.intInRange(0, 10) > 6 ?
-		BlockID::RedFlower :
+		BlockID::Rose :
 		BlockID::TallGrass;
 }

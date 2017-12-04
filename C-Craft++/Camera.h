@@ -14,7 +14,7 @@ public:
 	void hookEntity(const Entity& entity) noexcept;
 
 	const glm::mat4& getViewMatrix() const noexcept;
-	const glm::mat4& getProjViewMatrix() const noexcept;
+	const glm::mat4& getProjectionViewMatrix() const noexcept;
 	const glm::mat4& getProjectionMatrix() const noexcept;
 
 	const ViewFrustum& getFrustum() const noexcept;

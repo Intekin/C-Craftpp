@@ -1,12 +1,12 @@
 #include "Random.h"
 
-RandomSingelton& RandomSingelton::get()
+RandomSingleton& RandomSingleton::get()
 {
-	static RandomSingelton r;
+	static RandomSingleton r;
 	return r;
 }
 
-RandomSingelton::RandomSingelton()
+RandomSingleton::RandomSingleton()
 {
 	m_randomEngine.seed(std::time(nullptr));
 	for (int i = 0; i < 5; i++)

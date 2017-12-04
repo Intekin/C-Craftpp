@@ -1,12 +1,12 @@
-#ifndef TEMPERATEFORESTBIOME_H_INCLUDED
-#define TEMPERATEFORESTBIOME_H_INCLUDED
+#ifndef LIGHTFOREST_H_INCLUDED
+#define LIGHTFOREST_H_INCLUDED
 
 #include "Biome.h"
 
-class TemperateForestBiome : public Biome
+class LightForest : public Biome
 {
     public:
-        TemperateForestBiome(int seed);
+        LightForest(int seed);
 
         ChunkBlock getPlant    (Rand& rand) const override;
         ChunkBlock getTopBlock (Rand& rand) const override;
@@ -15,7 +15,7 @@ class TemperateForestBiome : public Biome
 
 
     private:
-        NoiseParameters getNoiseParameters() ;
+        NoiseParameters getNoiseParameters() override;
 };
 
-#endif // TEMPERATEFORESTBIOME_H_INCLUDED
+#endif // LIGHTFOREST_H_INCLUDED

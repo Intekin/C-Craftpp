@@ -29,7 +29,7 @@ const glm::mat4& Camera::getViewMatrix() const noexcept
 	return m_viewMatrix;
 }
 
-const glm::mat4& Camera::getProjViewMatrix() const noexcept
+const glm::mat4& Camera::getProjectionViewMatrix() const noexcept
 {
 	return m_projViewMatrix;
 }

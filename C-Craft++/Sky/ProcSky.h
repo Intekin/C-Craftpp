@@ -1,4 +1,6 @@
-#pragma once
+#ifndef PROC_SKY_H
+#define PROC_SKY_H
+
 #include "../Shader/ProcSkyShader.h"
 #include "../Model.h"
 #include "../Camera.h"
@@ -9,10 +11,12 @@ class Camera;
 class ProcSky
 {
 public:
-	ProcSky();
+    ProcSky();
 
-	void Render(const Camera& camera);
+    void Render(const Camera& camera);
 private:
-	ProcSkyShader m_shader;
-	Model m_skybox;
+    ProcSkyShader m_shader;
+    Model m_skybox;
 };
+
+#endif

@@ -1,45 +1,45 @@
 #include "TemperateForestBiome.h"
 
-#include "../Structure/TreeGenerator.h"
+#include "../Structures/TreeGenerator.h"
 
 TemperateForestBiome::TemperateForestBiome(int seed)
-	: Biome(getNoiseParameters(), 55, 75, seed)
+:   Biome  (getNoiseParameters(), 55, 75, seed)
 {
 
 }
 
 ChunkBlock TemperateForestBiome::getTopBlock(Rand& rand) const
 {
-	return BlockID::Grass;
+    return rand.intInRange(0, 10) < 8 ?
+		BlockID::Grass :
+		BlockID::Dirt;
 }
 
-ChunkBlock TemperateForestBiome::getUnderWaterBlock(Rand& rand)const
+ChunkBlock TemperateForestBiome::getUnderWaterBlock(Rand& rand) const
 {
-	return rand.intInRange(0, 10) > 8 ?
+    return rand.intInRange(0, 10) > 8 ?
 		BlockID::Dirt :
 		BlockID::Sand;
 }
 
 void TemperateForestBiome::makeTree(Rand& rand, Chunk& chunk, int x, int y, int z) const
 {
-	makeOakTree(chunk, rand, x, y, z);
+    makeOakTree(chunk, rand, x, y, z);
 }
 
 NoiseParameters TemperateForestBiome::getNoiseParameters()
 {
-	NoiseParameters heightParams;
-	heightParams.ocaves = 5;
-	heightParams.amplitudes = 100;
-	heightParams.smoothness = 195;
-	heightParams.heightoffset = -30;
-	heightParams.roughness = 0.52;
+    NoiseParameters heightParams;
+    heightParams.octaves       = 5;
+    heightParams.amplitude     = 100;
+    heightParams.smoothness    = 195;
+    heightParams.heightOffset  = -30;
+    heightParams.roughness     = 0.52;
 
-	return heightParams;
+    return heightParams;
 }
 
 ChunkBlock TemperateForestBiome::getPlant(Rand& rand) const
 {
-	return rand.intInRange(0, 10) > 6 ?
-		BlockID::RedFlower :
-		BlockID::TallGrass;
+    return BlockID::TallGrass;
 }

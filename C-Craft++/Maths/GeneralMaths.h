@@ -1,13 +1,14 @@
-#pragma once
+#ifndef GENERALMATHS_H_INCLUDED
+#define GENERALMATHS_H_INCLUDED
 
 float bilinearInterpolation(float bottomLeft, float topLeft, float bottomRight, float topRight,
-	float xMin, float xMax,
-	float zMin, float zMax,
-	float xToCalc, float yToCalc);
+                            float xMin, float xMax,
+                            float zMin, float zMax,
+                            float xToCalc, float yToCalc);
 
 float smoothInterpolation(float bottomLeft, float topLeft, float bottomRight, float topRight,
-	float xMin, float xMax,
-	float zMin, float zMax,
-	float x, float y);
+                            float xMin, float xMax,
+                            float zMin, float zMax,
+                            float x, float z);
 
-float clamp(float x, float lowerlimit, float upperlimit);
+#endif // GENERALMATHS_H_INCLUDED
