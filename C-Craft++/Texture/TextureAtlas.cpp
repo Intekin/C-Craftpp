@@ -1,5 +1,6 @@
 #include "TextureAtlas.h"
 #include <array>
+#include <iostream>
 
 TextureAtlas::TextureAtlas(const std::string & textureFileName)
 {
@@ -33,4 +34,8 @@ std::array<GLfloat, 8> TextureAtlas::getTexture(const sf::Vector2i & coords)
 		xMin, yMin,
 		xMax, yMin
 	};
+
+	 
+
+
 }

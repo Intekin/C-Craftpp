@@ -1,5 +1,4 @@
-#ifndef TERRAINGENERATOR_H_INCLUDED
-#define TERRAINGENERATOR_H_INCLUDED
+#pragma once
 
 class Chunk;
 
@@ -12,4 +11,3 @@ class TerrainGenerator
         virtual ~TerrainGenerator() = default;
 };
 
-#endif // TERRAINGENERATOR_H_INCLUDED

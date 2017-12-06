@@ -17,6 +17,8 @@ void Camera::update() noexcept
 	m_viewMatrix = makeViewMatrix(*this);
 	m_projViewMatrix = m_projectionMatrix * m_viewMatrix;
 	m_frustum.update(m_projViewMatrix);
+
+
 }
 
 void Camera::hookEntity(const Entity& entity) noexcept

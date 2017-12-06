@@ -264,13 +264,7 @@
     <ClCompile Include="World\Generation\Biome\DesertBiome.cpp">
       <Filter>Header Files\World\Generation\Biome</Filter>
     </ClCompile>
-    <ClCompile Include="World\Generation\Biome\LightForestBiome.cpp">
-      <Filter>Header Files\World\Generation\Biome</Filter>
-    </ClCompile>
     <ClCompile Include="World\Generation\Biome\OceanBiome.cpp">
-      <Filter>Header Files\World\Generation\Biome</Filter>
-    </ClCompile>
-    <ClCompile Include="World\Generation\Biome\TemperateForestBiome.cpp">
       <Filter>Header Files\World\Generation\Biome</Filter>
     </ClCompile>
     <ClCompile Include="World\Generation\Structure\StructureBuilder.cpp">
@@ -518,13 +512,7 @@
     <ClInclude Include="World\Generation\Biome\DesertBiome.h">
       <Filter>Header Files\World\Generation\Biome</Filter>
     </ClInclude>
-    <ClInclude Include="World\Generation\Biome\LightForestBiome.h">
-      <Filter>Header Files\World\Generation\Biome</Filter>
-    </ClInclude>
     <ClInclude Include="World\Generation\Biome\OceanBiome.h">
-      <Filter>Header Files\World\Generation\Biome</Filter>
-    </ClInclude>
-    <ClInclude Include="World\Generation\Biome\TemperateForestBiome.h">
       <Filter>Header Files\World\Generation\Biome</Filter>
     </ClInclude>
     <ClInclude Include="World\Generation\Structure\StructureBuilder.h">

@@ -45,11 +45,17 @@ namespace
 		{
 			while (configFile >> key)
 			{
-				if (key == "renderdistance")
+				if (key == "renderchunkdistance")
 				{
-					configFile >> config.renderDistance;
-					std::cout << "Config: Render Distance: "
-						<< config.renderDistance << '\n';
+					configFile >> config.renderChunkDistance;
+					std::cout << "Config: Render Chunk Distance: "
+						<< config.renderChunkDistance << '\n';
+				}
+				else if (key == "renderviewdistance")
+				{
+					configFile >> config.renderViewDistance;
+					std::cout << "Config: Render View Distance: "
+						 << config.renderViewDistance << '\n';
 				}
 				else if (key == "fullscreen")
 				{

@@ -1,6 +1,8 @@
 #include "Application.h"
 #include "States\PlayingState.h"
 #include <iostream>
+#include <sstream>
+#include <iomanip>
 #include "World\Block\BlockDatabase.h"
 
 Application::Application(const Config& config)
@@ -10,6 +12,7 @@ Application::Application(const Config& config)
 {
 	BlockDatabase::get();
 	pushState<StatePlaying>(*this, config);
+
 }
 
 void Application::runLoop()
@@ -80,6 +83,7 @@ void Application::handleEvents(bool& running)
 		}
 	}
 }
+
 
 void Application::popState()
 {

@@ -13,7 +13,7 @@
 
 World::World(const Camera& camera, const Config& config, Player& player)
 :   m_chunkManager      (*this)
-,   m_renderDistance    (config.renderDistance)
+,   m_renderDistance    (config.renderChunkDistance)
 {
     setSpawnPoint();
     player.position = m_playerSpawnPoint;

@@ -1,6 +1,4 @@
-#ifndef SUPERFLATGENERATOR_H_INCLUDED
-#define SUPERFLATGENERATOR_H_INCLUDED
-
+#pragma once
 #include "TerrainGenerator.h"
 
 class SuperFlatGenerator : public TerrainGenerator
@@ -10,4 +8,4 @@ class SuperFlatGenerator : public TerrainGenerator
         int  getMinimumSpawnHeight  () const noexcept   override;
 };
 
-#endif // SUPERFLATGENERATOR_H_INCLUDED
+

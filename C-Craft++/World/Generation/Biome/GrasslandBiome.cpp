@@ -35,11 +35,11 @@ void GrasslandBiome::makeTree(Rand& rand, Chunk& chunk, int x, int y, int z) con
 NoiseParameters GrasslandBiome::getNoiseParameters()
 {
     NoiseParameters heightParams;
-    heightParams.octaves       = 9;
-    heightParams.amplitude     = 85;
-    heightParams.smoothness    = 235;
-    heightParams.heightOffset  = -20;
-    heightParams.roughness     = 0.51;
+	heightParams.octaves = 7;
+	heightParams.amplitude = 43;
+	heightParams.smoothness = 55;
+	heightParams.heightOffset = -20;
+	heightParams.roughness = 0.50;
 
     return heightParams;
 }

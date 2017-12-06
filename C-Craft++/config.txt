@@ -1,4 +1,5 @@
-renderdistance 4
+renderchunkdistance 4
+viewdistance 1000
 fullscreen 0
 windowsize 1280 720
 fov 90

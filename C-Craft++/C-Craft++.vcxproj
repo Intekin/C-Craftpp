@@ -192,9 +192,7 @@
     <ClCompile Include="World\Generation\Biome\Biome.cpp" />
     <ClCompile Include="World\Generation\Biome\DesertBiome.cpp" />
     <ClCompile Include="World\Generation\Biome\GrasslandBiome.cpp" />
-    <ClCompile Include="World\Generation\Biome\LightForestBiome.cpp" />
     <ClCompile Include="World\Generation\Biome\OceanBiome.cpp" />
-    <ClCompile Include="World\Generation\Biome\TemperateForestBiome.cpp" />
     <ClCompile Include="World\Generation\Structure\StructureBuilder.cpp" />
     <ClCompile Include="World\Generation\Structure\TreeGenerator.cpp" />
     <ClCompile Include="World\Generation\Terrain\ClassicOverWorldGenerator.cpp" />
@@ -276,9 +274,7 @@
     <ClInclude Include="World\Generation\Biome\Biome.h" />
     <ClInclude Include="World\Generation\Biome\DesertBiome.h" />
     <ClInclude Include="World\Generation\Biome\GrasslandBiome.h" />
-    <ClInclude Include="World\Generation\Biome\LightForestBiome.h" />
     <ClInclude Include="World\Generation\Biome\OceanBiome.h" />
-    <ClInclude Include="World\Generation\Biome\TemperateForestBiome.h" />
     <ClInclude Include="World\Generation\Structure\StructureBuilder.h" />
     <ClInclude Include="World\Generation\Structure\TreeGenerator.h" />
     <ClInclude Include="World\Generation\Terrain\ClassicOverWorldGenerator.h" />

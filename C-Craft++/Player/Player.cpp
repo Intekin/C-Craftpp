@@ -45,7 +45,7 @@ Player::Player()
     m_posPrint.setFont(f);
     m_posPrint.setOutlineColor(sf::Color::Black);
     m_posPrint.setCharacterSize(25);
-    m_posPrint.setPosition(20.0f, 20.0f * 6.0f + 100.0f);
+    m_posPrint.setPosition(20.0f, 20.0f * m_heldItemSlots + 1 + 100.0f);
 }
 
 void Player::addItem(const Material& material)
@@ -117,11 +117,7 @@ void Player::update(float dt, World& world)
 
     if (!m_isFlying)
     {
-        if (!m_isOnGround)
-        {
-            velocity.y -= 40 * dt;
-        }
-        m_isOnGround = false;
+		velocity.y -= 40 * dt;
     }
 
 
@@ -162,7 +158,8 @@ void Player::collide(World& world, const glm::vec3& vel, float dt)
             }
             else if (vel.y < 0)
             {
-                m_isOnGround = true;
+				m_isFlying = false;
+				m_isOnGround = true;
                 position.y = y + box.dimensions.y + 1;
                 velocity.y = 0;
             }
@@ -222,7 +219,7 @@ void Player::keyboardInput()
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
 		{
-			jump();
+			m_acceleation.y += speed * 3;
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::LShift))
 		{
@@ -255,7 +252,9 @@ void Player::keyboardInput()
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
 		{
-			jump();
+			if(m_isOnGround)
+				jump();
+
 		}
 	}
 }
@@ -318,30 +317,27 @@ void Player::draw(RenderMaster& master)
         master.drawSFML(t);
     }
     std::ostringstream stream;
-    stream  << " X: " << position.x
-            << " Y: " << position.y
-            << " Z: " << position.z
-            << " Grounded " << std::boolalpha << m_isOnGround;
+	stream << " X: " << position.x
+		<< " Y: " << position.y
+		<< " Z: " << position.z
+		<< " Flying " << std::boolalpha << m_isFlying
+
+		<< "\n X: " << rotation.x
+		<< " Y: " << rotation.y
+		<< " Z: " << rotation.z;
 
     m_posPrint.setString(stream.str());
+
+	if (position.y < -10.0f)
+		position.y = 150.f;
 
     master.drawSFML(m_posPrint);
 }
 
 void Player::jump()
 {
-    if (!m_isFlying)
-    {
-        if (m_isOnGround)
-        {
-            m_isOnGround = false;
-            m_acceleation.y += speed * 50;
-        }
-    }
-    else
-    {
-        m_acceleation.y += speed * 3;
-    }
+	m_acceleation.y += speed * 50;
+ 	m_isOnGround = false;
 }
 
 

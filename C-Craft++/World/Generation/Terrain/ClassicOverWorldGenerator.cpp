@@ -18,10 +18,8 @@ NoiseGenerator ClassicOverWorldGenerator::m_biomeNoiseGen    (seed * 2);
 
 ClassicOverWorldGenerator::ClassicOverWorldGenerator()
 :   m_grassBiome        (seed)
-,   m_temperateForest   (seed)
 ,   m_desertBiome       (seed)
 ,   m_oceanBiome        (seed)
-,   m_lightForest       (seed)
 {
     setUpNoise();
 }
@@ -205,32 +203,20 @@ const Biome& ClassicOverWorldGenerator::getBiome(int x, int z) const
 {
     int biomeValue = m_biomeMap.get(x, z);
 
-    if (biomeValue > 160)
+    if (biomeValue > 150)
     {
         return m_oceanBiome;
     }
-    else if (biomeValue > 150)
-    {
-        return m_grassBiome;
-    }
     else if (biomeValue > 130)
     {
-        return m_lightForest;
-    }
-    else if (biomeValue > 120)
-    {
-        return m_temperateForest;
-    }
-    else if (biomeValue > 110)
-    {
-        return m_lightForest;
+        return m_grassBiome;
     }
     else if (biomeValue > 100)
     {
-        return m_grassBiome;
+        return m_desertBiome;
     }
     else
     {
-        return m_desertBiome;
+        return m_grassBiome;
     }
 }
