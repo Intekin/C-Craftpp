@@ -3,6 +3,7 @@
 #include <array>
 
 #include "glm.h"
+#include "../Config.h"
 
 struct AABB;
 
@@ -23,4 +24,5 @@ public:
 
 private:
 	std::array<Plane, 6> m_planes;
+	Config m_config;
 };

@@ -150,6 +150,7 @@
     <ClCompile Include="Render\RenderMaster.cpp" />
     <ClCompile Include="Render\SFMLRenderer.cpp" />
     <ClCompile Include="Render\WaterRenderer.cpp" />
+    <ClCompile Include="SettingsParser.cpp" />
     <ClCompile Include="Shader\BasicShader.cpp" />
     <ClCompile Include="Shader\ChunkShader.cpp" />
     <ClCompile Include="Shader\CloudShader.cpp" />
@@ -219,6 +220,7 @@
     <ClInclude Include="Render\RenderMaster.h" />
     <ClInclude Include="Render\SFMLRenderer.h" />
     <ClInclude Include="Render\WaterRenderer.h" />
+    <ClInclude Include="SettingsParser.h" />
     <ClInclude Include="Shader\BasicShader.h" />
     <ClInclude Include="Shader\ChunkShader.h" />
     <ClInclude Include="Shader\CloudShader.h" />

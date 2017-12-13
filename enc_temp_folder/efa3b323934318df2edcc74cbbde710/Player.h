@@ -39,7 +39,7 @@ class Player : public Entity
         std::vector<sf::Text>  m_itemText;
         sf::Text m_posPrint;
 
-		float m_speed = 0.2f;
+		float m_speed = 1.0f;
         int m_heldItem = 0;
 		int m_heldItemSlots = 10;
 		int m_inventorySlots = 48;

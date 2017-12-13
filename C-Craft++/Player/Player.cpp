@@ -13,7 +13,7 @@
 sf::Font f;
 
 Player::Player()
-:   Entity  ({10, 125, 10}, {0, 0, 0}, {0.3, 1.0, 0.3})
+:   Entity  ({0, 125, 0}, {0, 0, 0}, {0.3, 1.6, 0.3})
 ,   m_itemDown  (sf::Keyboard::Down)
 ,   m_itemUp    (sf::Keyboard::Up)
 ,   m_flyKey    (sf::Keyboard::F)
@@ -132,11 +132,11 @@ void Player::update(float dt, World& world)
 
 
     box.update(position);
-    velocity.x *= 0.95;
-    velocity.z *= 0.95;
+    velocity.x *= .95;
+    velocity.z *= .95;
     if (m_isFlying)
     {
-        velocity.y *= 0.95;
+        velocity.y *= .95;
     }
 }
 
@@ -144,7 +144,7 @@ void Player::update(float dt, World& world)
 void Player::collide(World& world, const glm::vec3& vel, float dt)
 {
     for (int x = position.x - box.dimensions.x; x < position.x + box.dimensions.x; x++)
-    for (int y = position.y - box.dimensions.y; y < position.y + 0.7             ; y++)
+    for (int y = position.y - box.dimensions.y; y < position.y + box.dimensions.y; y++)
     for (int z = position.z - box.dimensions.z; z < position.z + box.dimensions.z; z++)
     {
         auto block = world.getBlock(x, y, z);
@@ -185,10 +185,6 @@ void Player::collide(World& world, const glm::vec3& vel, float dt)
     }
 }
 
-///@TODO Move this
-float speed = 0.2f;
-
-
 void Player::keyboardInput()
 {
 	if (m_isFlying)
@@ -196,7 +192,7 @@ void Player::keyboardInput()
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
 		{
 			//Somewhat working, neeths more math
-			float s = speed;
+			float s = m_speed;
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::LControl)) s *= 5;
 			m_acceleation.x += -glm::cos(glm::radians(rotation.y + 90)) * s;
 			m_acceleation.z += -glm::sin(glm::radians(rotation.y + 90)) * s;
@@ -204,51 +200,51 @@ void Player::keyboardInput()
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
 		{
-			m_acceleation.x += glm::cos(glm::radians(rotation.y + 90)) * speed;
-			m_acceleation.z += glm::sin(glm::radians(rotation.y + 90)) * speed;
+			m_acceleation.x += glm::cos(glm::radians(rotation.y + 90)) * m_speed;
+			m_acceleation.z += glm::sin(glm::radians(rotation.y + 90)) * m_speed;
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
 		{
-			m_acceleation.x += -glm::cos(glm::radians(rotation.y)) * speed;
-			m_acceleation.z += -glm::sin(glm::radians(rotation.y)) * speed;
+			m_acceleation.x += -glm::cos(glm::radians(rotation.y)) * m_speed;
+			m_acceleation.z += -glm::sin(glm::radians(rotation.y)) * m_speed;
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
 		{
-			m_acceleation.x += glm::cos(glm::radians(rotation.y)) * speed;
-			m_acceleation.z += glm::sin(glm::radians(rotation.y)) * speed;
+			m_acceleation.x += glm::cos(glm::radians(rotation.y)) * m_speed;
+			m_acceleation.z += glm::sin(glm::radians(rotation.y)) * m_speed;
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
 		{
-			m_acceleation.y += speed * 3;
+			m_acceleation.y += m_speed * 3;
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::LShift))
 		{
-			m_acceleation.y -= speed * 3;
+			m_acceleation.y -= m_speed * 3;
 		}
 	}
 	else
 	{
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
 		{
-			float s = speed;
+			float s = m_speed;
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::LControl)) s *= 5;
 			m_acceleation.x += -glm::cos(glm::radians(rotation.y + 90)) * s;
 			m_acceleation.z += -glm::sin(glm::radians(rotation.y + 90)) * s;
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
 		{
-			m_acceleation.x += glm::cos(glm::radians(rotation.y + 90)) * speed;
-			m_acceleation.z += glm::sin(glm::radians(rotation.y + 90)) * speed;
+			m_acceleation.x += glm::cos(glm::radians(rotation.y + 90)) * m_speed;
+			m_acceleation.z += glm::sin(glm::radians(rotation.y + 90)) * m_speed;
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
 		{
-			m_acceleation.x += -glm::cos(glm::radians(rotation.y)) * speed;
-			m_acceleation.z += -glm::sin(glm::radians(rotation.y)) * speed;
+			m_acceleation.x += -glm::cos(glm::radians(rotation.y)) * m_speed;
+			m_acceleation.z += -glm::sin(glm::radians(rotation.y)) * m_speed;
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
 		{
-			m_acceleation.x += glm::cos(glm::radians(rotation.y)) * speed;
-			m_acceleation.z += glm::sin(glm::radians(rotation.y)) * speed;
+			m_acceleation.x += glm::cos(glm::radians(rotation.y)) * m_speed;
+			m_acceleation.z += glm::sin(glm::radians(rotation.y)) * m_speed;
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
 		{
@@ -279,12 +275,12 @@ void Player::mouseInput(const sf::RenderWindow& window)
 		 static_cast<int>(window.getSize().y / 2)
 	 };
 
-    static auto const BOUND = 89.9999;
+    static auto const BOUND = 89.9999f;
     static auto lastMousePosition = sf::Mouse::getPosition(window);
     auto change = sf::Mouse::getPosition(window) - lastMousePosition;
 
-    rotation.y += change.x * 0.05;
-    rotation.x += change.y * 0.05;
+    rotation.y += change.x * 0.05f;
+    rotation.x += change.y * 0.05f;
 
     if      (rotation.x >  BOUND) rotation.x =  BOUND;
     else if (rotation.x < -BOUND) rotation.x = -BOUND;
@@ -294,7 +290,7 @@ void Player::mouseInput(const sf::RenderWindow& window)
 
     lastMousePosition = sf::Mouse::getPosition(window);
 
-	 if(lastMousePosition.x < 10 || lastMousePosition.x > window.getSize().x - 10 || lastMousePosition.y < 10 || lastMousePosition.y > window.getSize().y - 10 ) {
+	 if(lastMousePosition.x < 10 || lastMousePosition.x >(int)window.getSize().x - 10 || lastMousePosition.y < 10 || lastMousePosition.y >(int)window.getSize().y - 10 ) {
 		sf::Mouse::setPosition(window.getPosition() + center ); //not perfect but better
 		lastMousePosition = center;
 	 }
@@ -336,7 +332,7 @@ void Player::draw(RenderMaster& master)
 
 void Player::jump()
 {
-	m_acceleation.y += speed * 50;
+	m_acceleation.y += m_speed * 50;
  	m_isOnGround = false;
 }
 

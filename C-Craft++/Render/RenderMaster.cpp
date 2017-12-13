@@ -82,7 +82,7 @@ void RenderMaster::finishRender(sf::RenderWindow& window, const Camera& camera)
     glClear(GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT);
     glEnable(GL_DEPTH_TEST);
     glEnable(GL_CULL_FACE);
-    //m_quadRenderer  .render (camera);
+    //m_quadRenderer  .render (camera, &m_conf);
     //m_cubeRenderer  .render (camera);
     m_chunkRenderer .render (camera, &m_conf);
     m_waterRenderer .render (camera, &m_conf);

@@ -6,13 +6,13 @@
 struct Entity
 {
 	Entity() 
-		: box ({0,0,0}) 
+		: box ({0.0f, 0.0f, 0.0f })
 	{}
 
 	Entity(const glm::vec3 pos, const glm::vec3& rot)
 		:	position(pos)
 		,	rotation(rot)
-		,	box({0,0,0})
+		,	box({ 0.0f, 0.0f, 0.0f })
 	{}
 
 	Entity(const glm::vec3 pos, const glm::vec3& rot, const glm::vec3& box)

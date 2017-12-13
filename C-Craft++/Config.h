@@ -12,4 +12,6 @@ struct Config
 	float brightness = 1.15f;
 	float contrast = 1.1f;
 	bool postProcess = true;
+	bool culling = false;
+	int worldType = 0;
 };

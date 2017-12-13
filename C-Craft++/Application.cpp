@@ -23,7 +23,7 @@ void Application::runLoop()
 	bool running = true;
 
 	m_renderMaster.setConfig(m_config);
-	m_context.window.setFramerateLimit(60);
+	//m_context.window.setFramerateLimit(60);
 
 	sf::Time m;
 

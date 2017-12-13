@@ -9,10 +9,6 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
     </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
     <Filter Include="Header Files\States">
       <UniqueIdentifier>{9da0e7e9-ace1-4d88-bd7d-82b0b077f9b6}</UniqueIdentifier>
     </Filter>
@@ -99,6 +95,10 @@
     </Filter>
     <Filter Include="Header Files\Sky">
       <UniqueIdentifier>{6425150b-39de-4fb9-a6b7-0a33d3f118cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -299,6 +299,9 @@
     </ClCompile>
     <ClCompile Include="Render\RenderMaster.cpp">
       <Filter>Source Files\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="SettingsParser.cpp">
+      <Filter>Header Files\Util</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -547,6 +550,9 @@
     </ClInclude>
     <ClInclude Include="Render\RenderMaster.h">
       <Filter>Header Files\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="SettingsParser.h">
+      <Filter>Header Files\Util</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

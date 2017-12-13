@@ -84,17 +84,18 @@ void World::update(const Camera& camera)
 
 ///@TODO
 ///Optimize for chunkPositionU usage :thinking:
+//something is bottleneking here
 void World::loadChunks(const Camera& camera)
 {
-    while(m_isRunning)
-    {
+	while(m_isRunning)
+	{
         bool isMeshMade = false;
-        int cameraX = camera.position.x / CHUNK_SIZE;
-        int cameraZ = camera.position.z / CHUNK_SIZE;
+        int cameraX = (int)camera.position.x / CHUNK_SIZE;
+        int cameraZ = (int)camera.position.z / CHUNK_SIZE;
 
         for (int i = 0; i < m_loadDistance; i++)
         {
-            std::this_thread::sleep_for(std::chrono::milliseconds(1));
+            std::this_thread::sleep_for(std::chrono::milliseconds(5)); //is there a point?
             int minX = std::max(cameraX  - i, 0);
             int minZ = std::max(cameraZ  - i, 0);
             int maxX = cameraX + i;
@@ -108,10 +109,7 @@ void World::loadChunks(const Camera& camera)
                     isMeshMade = m_chunkManager.makeMesh(x, z, camera);
                     m_mainMutex.unlock();
                 }
-                //if (isMeshMade)
-                 //   break;
             }
-
             if (isMeshMade)
                 break;
         }
@@ -192,8 +190,8 @@ void World::renderWorld(RenderMaster& renderer, const Camera& camera)
     {
         Chunk& chunk = itr->second;
 
-        int cameraX = camera.position.x;
-        int cameraZ = camera.position.z;
+        int cameraX = (int)camera.position.x;
+        int cameraZ = (int)camera.position.z;
 
         int minX = (cameraX / CHUNK_SIZE) - m_renderDistance;
         int minZ = (cameraZ / CHUNK_SIZE) - m_renderDistance;

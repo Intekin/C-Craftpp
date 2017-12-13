@@ -6,12 +6,12 @@ Camera::Camera(const Config& config) noexcept
 {
 	m_projectionMatrix = makeProjectionMatrix(config);
 
-	position = { 0, 0, -3.5f };
+	position = { 0, 0, 0 };
 }
 
 void Camera::update() noexcept
 {
-	position = { m_pEntity->position.x, m_pEntity->position.y + 0.6f, m_pEntity->position.z };
+	position = { m_pEntity->position.x, m_pEntity->position.y, m_pEntity->position.z };
 	rotation = m_pEntity->rotation;
 
 	m_viewMatrix = makeViewMatrix(*this);

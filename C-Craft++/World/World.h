@@ -1,5 +1,4 @@
-#ifndef WORLD_H_INCLUDED
-#define WORLD_H_INCLUDED
+#pragma once
 
 #include <vector>
 #include <memory>
@@ -69,4 +68,3 @@ class World : public NonCopyable
         glm::vec3 m_playerSpawnPoint;
 };
 
-#endif // WORLD_H_INCLUDED

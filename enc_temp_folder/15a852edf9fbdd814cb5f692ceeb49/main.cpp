@@ -49,6 +49,8 @@ namespace
 
 		settings.get("window_width", config.windowX);
 		settings.get("window_height", config.windowY);
+		// if "width" and "height" are not found in the settings file their values are untouched 
+		// (meaning you can easily set defaults like shown above)
 		settings.get("renderchunkdistance", config.renderChunkDistance);
 		settings.get("renderviewdistance", config.renderViewDistance);
 		settings.get("fov", config.fov);
@@ -61,6 +63,7 @@ namespace
 		settings.get("worldType", config.worldType);
 
 		settings.print();
+		std::cin.get();
 	}
 
 	void displayInfo()

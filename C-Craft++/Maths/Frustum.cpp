@@ -66,12 +66,18 @@ void ViewFrustum::update(const glm::mat4& mat) noexcept
 
 bool ViewFrustum::isBoxInFrustum(const AABB& box) const noexcept
 {
+	bool result = true;
+	if(m_config.culling)
     for (auto& plane : m_planes)
     {
         if (plane.distanceToPoint(box.getVP(plane.normal)) < 0)
         {
-            return false;
+            result = false;
         }
+		else if (plane.distanceToPoint(box.getVN(plane.normal)) < 0)
+		{
+			result = true;
+		}
     }
-    return true;
+    return result;
 }

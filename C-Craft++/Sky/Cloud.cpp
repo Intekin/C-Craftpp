@@ -6,10 +6,10 @@
 Clouds::Clouds():cloud("clouds"){
     std::vector<GLfloat> mvertexCoords
     {
-            -2048,  128, 2048,
-             2048,  128, 2048,
-             2048,  128, -2048,
-            -2048,  128, -2048
+            -2048,  180, 2048,
+             2048,  180, 2048,
+             2048,  180, -2048,
+            -2048,  180, -2048
         };
 
     std::vector<GLfloat> mtextureCoords
