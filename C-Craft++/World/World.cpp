@@ -183,9 +183,9 @@ void World::updateChunk(int blockX, int blockY, int blockZ)
 void World::renderWorld(RenderMaster& renderer, const Camera& camera)
 {
     m_mainMutex.lock();
-    renderer.drawSky();
 
     auto& chunkMap = m_chunkManager.getChunks();
+
     for (auto itr = chunkMap.begin(); itr != chunkMap.end();)
     {
         Chunk& chunk = itr->second;
@@ -270,21 +270,22 @@ void World::setSpawnPoint()
     {
         m_chunkManager.unloadChunk(chunkX, chunkZ);
 
-        chunkX = RandomSingleton::get().intInRange(100, 200);
-        chunkZ = RandomSingleton::get().intInRange(100, 200);
+		chunkX = 1;
+		chunkZ = 1;
         blockX = RandomSingleton::get().intInRange(0, 15);
         blockZ = RandomSingleton::get().intInRange(0, 15);
 
         m_chunkManager.loadChunk(chunkX, chunkZ);
-        blockY = m_chunkManager.getChunk(chunkX, chunkZ).getHeightAt(blockX, blockZ);
+		blockY = 160; //m_chunkManager.getChunk(chunkX, chunkZ).getHeightAt(blockX, blockZ);
         attempts++;
+		std::cout << "Attempts: " << attempts;
     }
 
     int worldX = chunkX * CHUNK_SIZE + blockX;
     int worldZ = chunkZ * CHUNK_SIZE + blockZ;
 
     m_playerSpawnPoint = {worldX, blockY, worldZ};
-    std::cout   << "Spawn found! Attempts: "    << attempts
+	std::cout << "Spawn found!"
                 << " Time Taken: "              << timer.getElapsedTime().asSeconds() << " seconds\n";
 }
 

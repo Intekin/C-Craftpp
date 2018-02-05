@@ -13,7 +13,7 @@
 sf::Font f;
 
 Player::Player()
-:   Entity  ({0, 125, 0}, {0, 0, 0}, {0.3, 1.6, 0.3})
+:   Entity  ({100, 125, 100}, {0, 0, 0}, {0.3, 1.6, 0.3})
 ,   m_itemDown  (sf::Keyboard::Down)
 ,   m_itemUp    (sf::Keyboard::Up)
 ,   m_flyKey    (sf::Keyboard::F)

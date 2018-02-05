@@ -150,20 +150,20 @@ void ClassicOverWorldGenerator::setBlocks(int maxHeight)
         {
             if (y >= WATER_LEVEL)
             {
-                if (y < WATER_LEVEL + 4)
+                if (y < WATER_LEVEL + 2)
                 {
                     m_pChunk->setBlock(x, y, z, biome.getBeachBlock(m_random));
                     continue;
                 }
 
-                if (m_random.intInRange(0, biome.getTreeFrequency()) == 5 )
-                {
-                    trees.emplace_back(x, y + 1, z);
-                }
-                if (m_random.intInRange(0, biome.getPlantFrequency()) == 5 )
-                {
-                    plants.emplace_back(x, y + 1, z);
-                }
+                //if (m_random.intInRange(0, biome.getTreeFrequency()) == 5 )
+                //{
+                //    trees.emplace_back(x, y + 1, z);
+                //}
+                //if (m_random.intInRange(0, biome.getPlantFrequency()) == 5 )
+                //{
+                //    plants.emplace_back(x, y + 1, z);
+                //}
                 m_pChunk->setBlock(x, y, z, getBiome(x, z).getTopBlock(m_random));
             }
             else
@@ -180,43 +180,44 @@ void ClassicOverWorldGenerator::setBlocks(int maxHeight)
             m_pChunk->setBlock(x, y, z, BlockID::Stone);
         }
     }
+    //for (auto& plant : plants)
+    //{
+    //    int x = plant.x;
+    //    int z = plant.z;
 
-    for (auto& plant : plants)
-    {
-        int x = plant.x;
-        int z = plant.z;
+    //    auto block = getBiome(x, z).getPlant(m_random);
+    //    m_pChunk->setBlock(x, plant.y, z, block);
+    //}
 
-        auto block = getBiome(x, z).getPlant(m_random);
-        m_pChunk->setBlock(x, plant.y, z, block);
-    }
+    //for (auto& tree : trees)
+    //{
+    //    int x = tree.x;
+    //    int z = tree.z;
 
-    for (auto& tree : trees)
-    {
-        int x = tree.x;
-        int z = tree.z;
-
-        getBiome(x, z).makeTree(m_random, *m_pChunk, x, tree.y, z);
-    }
+    //    getBiome(x, z).makeTree(m_random, *m_pChunk, x, tree.y, z);
+    //}
 }
 
 const Biome& ClassicOverWorldGenerator::getBiome(int x, int z) const
 {
-    int biomeValue = m_biomeMap.get(x, z);
+    //int biomeValue = m_biomeMap.get(x, z);
 
-    if (biomeValue > 150)
-    {
-        return m_oceanBiome;
-    }
-    else if (biomeValue > 130)
-    {
-        return m_grassBiome;
-    }
-    else if (biomeValue > 100)
-    {
-        return m_desertBiome;
-    }
-    else
-    {
-        return m_grassBiome;
-    }
+    //if (biomeValue > 150)
+    //{
+    //    return m_oceanBiome;
+    //}
+    //else if (biomeValue > 130)
+    //{
+    //    return m_grassBiome;
+    //}
+    //else if (biomeValue > 100)
+    //{
+    //    return m_desertBiome;
+    //}
+    //else
+    //{
+    //    return m_grassBiome;
+    //}
+
+	return m_grassBiome;
 }

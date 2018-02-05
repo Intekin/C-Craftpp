@@ -49,11 +49,6 @@ void Chunk::setBlock(int x, int y, int z, ChunkBlock block)
     {
         m_highestBlocks.get(x, z) = y;
     }
-
-    if (m_isLoaded)
-    {
-        //m_pWorld->updateChunk(x, y, z);
-    }
 }
 
 //Chunk block to SECTION BLOCK positions

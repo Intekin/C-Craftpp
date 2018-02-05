@@ -69,17 +69,8 @@
     <Filter Include="Header Files\World\Generation">
       <UniqueIdentifier>{a8194f99-22a8-4c72-9154-c019eaabd221}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\World">
-      <UniqueIdentifier>{fd4ea320-ebdb-40a7-a37e-455ada025f95}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\World\Blocks">
-      <UniqueIdentifier>{056419a8-e669-40fc-9633-3a7c5effed48}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\GL">
       <UniqueIdentifier>{324f8596-c3f4-4455-af9d-5db8a19964ec}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\World\Chunks">
-      <UniqueIdentifier>{d699f5ba-6fdd-4f78-957b-ddc875fd8e71}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\World\Generation\Biome">
       <UniqueIdentifier>{af2991ff-ead4-4f9e-9c08-5e2c182f284a}</UniqueIdentifier>
@@ -102,18 +93,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Application.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Model.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Camera.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Maths\AABB.cpp">
       <Filter>Source Files\Maths</Filter>
     </ClCompile>
@@ -147,47 +126,8 @@
     <ClCompile Include="Player\Player.cpp">
       <Filter>Source Files\Player</Filter>
     </ClCompile>
-    <ClCompile Include="World\Block\BlockData.cpp">
-      <Filter>Source Files\World\Blocks</Filter>
-    </ClCompile>
-    <ClCompile Include="World\Block\BlockDatabase.cpp">
-      <Filter>Source Files\World\Blocks</Filter>
-    </ClCompile>
-    <ClCompile Include="World\Block\BlockType.cpp">
-      <Filter>Source Files\World\Blocks</Filter>
-    </ClCompile>
-    <ClCompile Include="World\Block\ChunkBlock.cpp">
-      <Filter>Source Files\World\Blocks</Filter>
-    </ClCompile>
-    <ClCompile Include="ToggleKey.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GlobalInfo.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Controller.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="GL\GLFunctions.cpp">
       <Filter>Header Files\GL</Filter>
-    </ClCompile>
-    <ClCompile Include="World\World.cpp">
-      <Filter>Source Files\World</Filter>
-    </ClCompile>
-    <ClCompile Include="World\Chunk\Chunk.cpp">
-      <Filter>Source Files\World\Chunks</Filter>
-    </ClCompile>
-    <ClCompile Include="World\Chunk\ChunkManager.cpp">
-      <Filter>Source Files\World\Chunks</Filter>
-    </ClCompile>
-    <ClCompile Include="World\Chunk\ChunkMesh.cpp">
-      <Filter>Source Files\World\Chunks</Filter>
-    </ClCompile>
-    <ClCompile Include="World\Chunk\ChunkMeshBuilder.cpp">
-      <Filter>Source Files\World\Chunks</Filter>
-    </ClCompile>
-    <ClCompile Include="World\Chunk\ChunkSection.cpp">
-      <Filter>Source Files\World\Chunks</Filter>
     </ClCompile>
     <ClCompile Include="Util\Random.cpp">
       <Filter>Header Files\Util</Filter>
@@ -233,9 +173,6 @@
     </ClCompile>
     <ClCompile Include="Shader\Shader.cpp">
       <Filter>Source Files\Shader</Filter>
-    </ClCompile>
-    <ClCompile Include="Context.cpp">
-      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="World\Event\PlayerDigEvent.cpp">
       <Filter>Header Files\World\Event</Filter>
@@ -302,6 +239,60 @@
     </ClCompile>
     <ClCompile Include="SettingsParser.cpp">
       <Filter>Header Files\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="World\Block\BlockData.cpp">
+      <Filter>Header Files\World\Block</Filter>
+    </ClCompile>
+    <ClCompile Include="World\Block\BlockDatabase.cpp">
+      <Filter>Header Files\World\Block</Filter>
+    </ClCompile>
+    <ClCompile Include="World\Block\BlockType.cpp">
+      <Filter>Header Files\World\Block</Filter>
+    </ClCompile>
+    <ClCompile Include="World\Block\ChunkBlock.cpp">
+      <Filter>Header Files\World\Block</Filter>
+    </ClCompile>
+    <ClCompile Include="World\Chunk\Chunk.cpp">
+      <Filter>Header Files\World\Chunk</Filter>
+    </ClCompile>
+    <ClCompile Include="World\Chunk\ChunkManager.cpp">
+      <Filter>Header Files\World\Chunk</Filter>
+    </ClCompile>
+    <ClCompile Include="World\Chunk\ChunkMesh.cpp">
+      <Filter>Header Files\World\Chunk</Filter>
+    </ClCompile>
+    <ClCompile Include="World\Chunk\ChunkMeshBuilder.cpp">
+      <Filter>Header Files\World\Chunk</Filter>
+    </ClCompile>
+    <ClCompile Include="World\Chunk\ChunkSection.cpp">
+      <Filter>Header Files\World\Chunk</Filter>
+    </ClCompile>
+    <ClCompile Include="World\World.cpp">
+      <Filter>Header Files\World</Filter>
+    </ClCompile>
+    <ClCompile Include="Application.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Context.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Controller.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GlobalInfo.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Model.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ToggleKey.cpp">
+      <Filter>Header Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

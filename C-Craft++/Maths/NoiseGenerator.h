@@ -1,5 +1,4 @@
-#ifndef NOISEGENERATOR_H_INCLUDED
-#define NOISEGENERATOR_H_INCLUDED
+#pragma once
 
 struct NoiseParameters
 {
@@ -33,4 +32,3 @@ class NoiseGenerator
         int m_seed;
 };
 
-#endif // NOISEGENERATOR_H_INCLUDED
